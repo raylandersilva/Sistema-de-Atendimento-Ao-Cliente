@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário</title>
+<style>
+  /* Estilos para o banner */
+  #banner {
+      bottom: 5px; /* Distância do topo da tela */
+      right: 5px;
+      z-index: 1000; /* Garante que o banner esteja sobre outros conteúdos */
+      display: none; /* Inicia oculto até ser definido */
+      width: 50%;
+  }
+  .obrigatorio {
+    color: red;
+    margin-left: 5px;
+    display: none; /* Começa oculto */
+  }
+
+  .botoes {
+    width: 100%;
+    height: 34px;
+    border-radius: 20px;
+    display: flex;
+    top: 0px;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  
+  /* Estilos para o modo escuro */
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .dark-mode input, .dark-mode select, .dark-mode button, .dark-mode textarea {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+  .dark-mode button {
+    background-color: #3e3e3e;
+  }
+
+  /* Estilos para o botão tipo chave */
+  .toggle {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: 10px 0;
+  }
+  
+
+  .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+  }
+
+  .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+  }
+
+  .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+  }
+
+  input:checked + .slider {
+      background-color: #2196F3;
+  }
+
+  input:checked + .slider:before {
+      transform: translateX(26px);
+  }
+</style>
+<script src="categorias_descricao.js" defer></script>
+</head>
+<body>
+
+<form id="formulario">
+  <!-- Botões adicionais -->
+   <span class="botoes">
+     <button type="button" onclick="openWebbook()">WEBBOOK</button>
+     <button type="button" onclick="openSAPMA()">SAP MA</button>
+     <button type="button" onclick="openSAPPA()">SAP PA</button>
+     <button type="button" onclick="openSAPPI()">SAP PI</button>
+     <button type="button" onclick="openSAPAL()">SAP AL</button>
+     <button type="button" onclick="enviarFaturas()">Enviar Faturas</button>
+     <button type="button" onclick="abrirCOI()">SERVIÇO EMERGÊNCIAL - RISCO A VIDA (COI)</button>
+     <button type="button" onclick="abrirEquatorialSite()">SITE EQUATORIAL</button>
+     <button type="button" onclick="abrirEnderecosPorEstado()">Endereços do Estado</button>
+     <!-- Botão tipo chave para modo escuro -->
+     <label class="toggle">
+         <input type="checkbox" id="toggleMode">
+         <span class="slider"></span>
+     </label>
+     <span id="modoTexto">Modo Escuro</span><br>
+   </span>
+  
+
+  <label for="nome">👤 ATENDENTE:</label>
+  <input type="text" id="usuario" name="👤 ATENDENTE" required oninput="verificarCampo('usuario')">
+  <span class="obrigatorio" id="asteriscoUsuario">*</span><br>
+
+  <label for="nome">📝 NOME:</label>
+  <input type="text" id="nome" name="📝 NOME" required oninput="verificarCampo('nome')">
+  <span class="obrigatorio" id="asteriscoNome">*</span><br>
+  
+  <label for="telefone">📞 TELEFONE:</label>
+  <input type="tel" id="telefone" name="📞 TELEFONE" required oninput="verificarCampo('telefone')">
+  <span class="obrigatorio" id="asteriscoTelefone">*</span>
+  <span id="estadoTelefone"></span><br>
+  
+  <label for="cc">💳 CC/CPF:</label>
+  <input type="text" id="cc" name="💳 CC/CPF" required oninput="verificarCampo('cc')">
+  <span class="obrigatorio" id="asteriscoCC">*</span><br>
+  
+  <label for="referencia">🔍 REFERÊNCIA:</label>
+  <input type="text" id="referencia" name="🔍 REFERÊNCIA"><br>
+  
+  <label for="descricao">✏️ DESCRIÇÃO:</label>
+  <select id="descricao" name="✏️ DESCRIÇÃO" style="width: 100%;">
+    <option value="">Selecione uma opção</option>
+  </select><br>
+  
+  <button style="width: 100px;height: 30px;background-color: green;color: white;margin-right: 50px;" type="submit">Copiar</button>
+  <button style="width: 100px;height: 30px;background-color: brown;color: white;" type="button" onclick="limparCampos()">Limpar</button>
+  
+</form>
+
+<textarea id="historico" rows="25" cols="50" readonly></textarea>
+<textarea id="dadosDeInfor" rows="25" cols="50" readonly></textarea>
+
+<script>
+function verificarCampo(campo) {
+    const input = document.getElementById(campo);
+    const asterisco = document.getElementById(`asterisco${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+    asterisco.style.display = input.value.trim() === '' ? 'inline' : 'none';
+}
+
+// Toggle para modo escuro
+const toggle = document.getElementById("toggleMode");
+const modoTexto = document.getElementById("modoTexto");
+
+toggle.addEventListener("change", function() {
+    document.body.classList.toggle("dark-mode");
+    modoTexto.textContent = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Escuro";
+});
+
+
+function verificarCampo(campo) {
+    const input = document.getElementById(campo);
+    const asterisco = document.getElementById(`asterisco${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+    asterisco.style.display = input.value.trim() === '' ? 'inline' : 'none';
+}
+
+
+function verificarCampo(campo) {
+    const input = document.getElementById(campo);
+    const asterisco = document.getElementById(`asterisco${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+    asterisco.style.display = input.value.trim() === '' ? 'inline' : 'none';
+}
+
+
+// Função para abrir a lista de botões de endereços por estado
+function abrirEnderecosPorEstado() {
+  var estado = document.getElementById("estadoTelefone").textContent.trim();
+  
+  switch (estado) {
+    case 'MA':
+      // Abre a página de endereços para MA
+      window.open("https://ma.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/");
+      break;
+    case 'PI':
+      // Abre a página de endereços para PI
+      window.open("https://pi.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/");
+      break;
+    case 'AL':
+      // Abre a página de endereços para AL
+      window.open("https://al.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/");
+      break;
+    case 'PA':
+      // Abre a página de endereços para PA
+      window.open("https://pa.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/");
+      break;
+      case 'AP':
+        window.open("https://ap.equatorialenergia.com.br/telefones-enderecos-e-links-uteis/");
+        break;
+    default:
+      // Se o estado não for encontrado, exibe um alerta
+      alert('Estado não encontrado para abrir os endereços correspondentes, coloque um numero de telefone no campo "TELEFONE" para reconhercer o estado do cliente.');
+      break;
+  }
+}
+
+
+
+
+function limparCampos() {
+  var estadoSpan = document.getElementById('estadoTelefone');
+  estadoSpan.textContent = '';
+  document.getElementById('banner').style.display = 'none';
+  var usuario = document.getElementById("usuario").value;
+  
+  document.getElementById("formulario").reset();
+  document.getElementById("dadosDeInfor").value = '';
+  document.getElementById("usuario").value = usuario;
+}
+
+// Função para abrir URL com base no DDD
+function abrirUrlPorDDD(ddd) {
+  if (ddd !== '') {
+    var estadoSpan = document.getElementById('estadoTelefone');
+    var dadosDeInforTextarea = document.getElementById('dadosDeInfor');
+      switch (ddd) {
+          case '98':
+          case '99':
+              // Abre a URL para DDD 98 e 99
+              window.open("http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=401&sap-language=PT");
+              window.open("http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=401&sap-language=PT");
+              // Define o caminho da imagem do banner para MA
+              document.getElementById('banner').src = 'card-telefones-eqt-MA.png';
+              estadoSpan.textContent = 'MA';
+              dadosDeInforTextarea.value = '      QUADRO DE INFORMAÇÕES DO ESTADO DE MARANHÃO\n\nTAXA DE RELIGAÇÕES\n\n    Normal\nMonofásico: R$ 10,27\nBifásico: R$ 14,15 \nTrifásico: R$ 42,49\nAlta Tensão: R$ 42,49\n\nContatos Central Geração Distribuída\ngeracaodistribuida.maranhao@equatorialenergia.com.br\nTEL. 0800 098 0055\n\nNUMERO DA CENTRAL DE VENDA/RETENÇÃO DA EQUATORIAL SERVIÇOS(SEGUROS E SERVIÇOS TERCEIROS)\n► 0800 728 9518 ◄';
+              break;
+          case '82':
+              // Abre a URL para DDD 82
+              window.open("http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm");
+              window.open("http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm");
+              // Define o caminho da imagem do banner para AL
+              document.getElementById('banner').src = 'card-telefones-eqt-AL.png';
+              estadoSpan.textContent = 'AL';
+              dadosDeInforTextarea.value = '      QUADRO DE INFORMAÇÕES DO ESTADO DE ALAGOAS\n\nTAXA DE RELIGAÇÕES\n\n    Normal\nMonofásico: R$ 10,24\nBifásico: R$ 14,15 \nTrifásico: R$ 42,37\nAlta Tensão: R$ 128,51\n\nContatos Central Geração Distribuída\ngeracaodistribuida.alagoas@equatorialenergia.com.br\nTEL. 0800 082 2800\n\nNUMERO DA CENTRAL DE VENDA/RETENÇÃO DA EQUATORIAL SERVIÇOS(SEGUROS E SERVIÇOS TERCEIROS)\n► 0800 728 9518 ◄';
+              break;
+          case '86':
+          case '89':
+              // Abre a URL para DDD 86 e 89
+              window.open("http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm");
+              window.open("http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm");
+              // Define o caminho da imagem do banner para PA
+              document.getElementById('banner').src = 'card-telefones-eqt-PI.png';
+              estadoSpan.textContent = 'PI';
+              dadosDeInforTextarea.value = '      QUADRO DE INFORMAÇÕES DO ESTADO DE PIAUI\n\nTAXA DE RELIGAÇÃO\n\n   Normal\nMonofásico: R$ 10,38 \nBifásico: R$ 14,30 \nTrifásico: R$ 42,93\nAlta Tensão: R$ 130,20\n\nContatos Central Geração Distribuída\ngeracaodistribuida.piaui@equatorialenergia.com.br\nTEL. 0800 025 0116\n\nNUMERO DA CENTRAL DE VENDA/RETENÇÃO DA EQUATORIAL SERVIÇOS(SEGUROS E SERVIÇOS TERCEIROS)\n► 0800 728 9518 ◄';
+              break;
+          case '91':
+          case '93':
+          case '94':
+              // Abre a URL para DDD 91, 93 e 94
+              window.open("http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=402&sap-language=PT");
+              window.open("http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=402&sap-language=PT");
+              // Define o caminho da imagem do banner para PI
+              document.getElementById('banner').src = 'card-telefones-eqt-PA.png';
+              estadoSpan.textContent = 'PA';
+              dadosDeInforTextarea.value = '      QUADRO DE INFORMAÇÕES DO ESTADO DE PARÁ\n\nTAXA DE RELIGAÇÃO\n\n   Normal\nMonofásico: R$ 10,27   \nBifásico: R$ 14,15 \nTrifásico: R$ 42,49 \nAlta Tensão: R$ 128,86\n\nNUMERO DA CENTRAL DE VENDA/RETENÇÃO DA EQUATORIAL SERVIÇOS(SEGUROS E SERVIÇOS TERCEIROS)\n► 0800 728 9518 ◄';
+              break;
+          case '96':
+              // Define o caminho da imagem do banner para PI
+              document.getElementById('banner').src = 'card-telefones-eqt-AP.png';
+              estadoSpan.textContent = 'AP';
+              dadosDeInforTextarea.value = '      QUADRO DE INFORMAÇÕES DO ESTADO DE AMAPÁ\n\nTAXA DE RELIGAÇÃO\n\nMONOFÁSICO► R$ 9,91\nBISAFÁSICO►R$ 13,65\nTRIFÁSICO► R$ 41,00\n\nContatos Central Geração Distribuída\ngeracaodistribuida.para@equatorialenergia.com.br\nTEL. 0800 721 0083\n\nNUMERO DA CENTRAL DE VENDA/RETENÇÃO DA EQUATORIAL SERVIÇOS(SEGUROS E SERVIÇOS TERCEIROS)\n► 0800 728 9518 ◄';
+              alert('Cliente do estado do AMAPÁ, abra o ajuri para continuar o atendimento.');
+              break;
+          default:
+              // Caso o DDD não corresponda a nenhum caso, esconde o banner
+              document.getElementById('banner').style.display = 'none';
+              estadoSpan.textContent = '';
+              dadosDeInforTextarea.value = '';
+              alert('Estado não encontrado pelo numero de telefone, verifique no genesys para qual estado o cliente quer atendimento e abra o SAP manualmente.');
+              break;
+      }
+      // Mostra o banner apenas se o DDD corresponder a um caso específico
+      if (ddd === '98' || ddd === '99' || ddd === '82' || ddd === '86' || ddd === '89' || ddd === '91' || ddd === '93' || ddd === '94' || ddd === '96') {
+          document.getElementById('banner').style.display = 'block';
+      } else {
+          document.getElementById('banner').style.display = 'none';
+      }
+  } else {
+    var estadoSpan = document.getElementById('estadoTelefone');
+    estadoSpan.textContent = '';
+    document.getElementById('banner').style.display = 'none';
+  }
+}
+
+// Funções para abrir URLs
+function openWebbook() {
+  window.open("https://sistemas.equatorialenergia.com.br/webbook/webbook/index.html");
+}
+
+function openSAPMA() {
+  window.open("http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=401&sap-language=PT");
+}
+
+function openSAPPA() {
+  window.open("http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=402&sap-language=PT");
+}
+
+function openSAPPI() {
+  window.open("http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm");
+}
+
+function openSAPAL() {
+  window.open("http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm");
+}
+
+function enviarFaturas() {
+  window.open("https://sistemas-hm.equatorialenergia.com.br/telaagil");
+}
+function abrirCOI() {
+  window.open("https://forms.office.com/pages/responsepage.aspx?id=UUVNECctOUiHsoYmSlIQpd6wcSHWvtxEsxHhTg3zTMpUNFM5TlJNNk1FSFNEN1lXOUNUSDBGVTZMWS4u");
+}
+
+function abrirEquatorialSite() {
+  window.open('https://www.equatorialenergia.com.br/');
+}
+
+// Adiciona um evento de escuta para o campo de telefone
+document.getElementById("telefone").addEventListener("change", function() {
+  var telefone = this.value;
+  // Extrai o DDD do número de telefone (considerando que os DDDs no Brasil têm 2 dígitos)
+  var ddd = telefone.substring(0, 2);
+  // Chama a função para abrir a URL com base no DDD
+  abrirUrlPorDDD(ddd);
+});
+
+
+
+
+document.getElementById("formulario").addEventListener("submit", function(event){
+  event.preventDefault();
+  var formData = new FormData(this);
+  var descricao = formData.get('descricao');
+  var usuario = document.getElementById("usuario").value;
+  var historico = '';
+  var dados = ''
+  dados += `${new Date().toLocaleString()}\n`;
+  historico += `${new Date().toLocaleString()}\n`;
+  for (const [key, value] of formData.entries()) {
+
+    
+    if (key !== 'descricao') {
+      if (value !== '') {
+
+        dados += `${key}►   ${value}\n`;
+        historico += `${key}►   ${value}\n`;
+      }
+    } else if (descricao) {
+      if (value !== '') {
+        dados += `${descricao}. \n${usuario}\n`;
+        historico += `${descricao}. \n${usuario}\n`;
+      }
+    }
+  }
+  // Adiciona o separador e a data/hora ao histórico
+  historico += "----------------------------------------\n";
+  document.getElementById("historico").value += historico;
+
+  // Copia os dados para a área de transferência
+  navigator.clipboard.writeText(dados).then(function() {
+    alert('Dados copiados para a área de transferência, (CTRL+V) para colar');
+  }, function(err) {
+    console.error('Erro ao copiar os dados para a área de transferência:', err);
+  });
+});
+
+// Preenche as opções do select com as categorias de descrição
+document.addEventListener("DOMContentLoaded", function() {
+  const selectDescricao = document.getElementById('descricao');
+  for (const categoria in categoriasDescricao) {
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = categoria;
+    categoriasDescricao[categoria].forEach(function(descricao) {
+      const option = document.createElement('option');
+      option.value = descricao;
+      option.textContent = descricao;
+      optgroup.appendChild(option);
+    });
+    selectDescricao.appendChild(optgroup);
+  }
+});
+</script>
+<img id="banner" style="display: none;">
+<footer>
+  <p>&copy; 2024 Raylander Silva de Sousa. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
