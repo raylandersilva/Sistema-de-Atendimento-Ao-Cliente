@@ -1,5 +1,8 @@
 /* ==================================natal================================= */
 /* CÃ³digo de neve animada ajustado para CSS puro */
+*{
+  transition: all 0.3s ease;
+}
 html {
   height: 100%;
   background: linear-gradient(#123 30%, #667);
@@ -71,18 +74,20 @@ body {
   /* background-size: 100% 100%; */
   animation: gradienteMovel 10s ease-in-out infinite;
 }
+
 container {
   width: fit-content;
   height: fit-content;
 }
 
 /* Estilo do FORMULARIO */
-form {
-  /* width: 45%; */
+#formulario {
   max-width: 500px;
-  /* position: absolute; */
+}
+
+form {
+  flex: 1;
   display: flex;
-  left: 0;
   padding: 20px;
   background-color: #002ea8;
   border-radius: 8px;
@@ -142,6 +147,10 @@ button {
 button[type="submit"] {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+button:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
 
 
 button:hover {
@@ -156,6 +165,15 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
 }
+textarea#pergunta:hover {
+  height:500px;
+}
+textarea#pergunta {
+  height: 50px; /* Altura inicial */
+  overflow: hidden; /* Opcional: evita que o conteúdo transborde durante a animação */
+}
+
+
 
 textarea#historico {
   float: left;
@@ -171,13 +189,14 @@ textarea#historico {
 }
 
 textarea#dadosDeInfor {
+  position: relative;
   float: right;
-  right: 0;
   /* margin: auto; */
-  width: 95%;
-  max-width: 500px;
   /* position: absolute; */
   box-shadow: -4px 13px 25px rgb(0 0 0);
+  flex: 1;
+  max-width: 500px;
+  right: 0;
 }
 
 .obrigatorio {
@@ -437,9 +456,7 @@ body.dark-mode #modoTexto {
 
 .containerforms {
   width: 100%;
-  display: grid; /* Ou use display: flex; se quiser flexbox */
-  grid-template-columns: 1fr 1fr;
-  min-height: fit-content;
+  display: flex; /* Ou use display: flex; se quiser flexbox */
   overflow: auto;
   justify-items: center;
 }
@@ -536,4 +553,51 @@ body.dark-mode #modoTexto {
 
 #toggleWindowFeatures {
   margin-left: 10px;
+}
+
+.radio-group {
+    font-size: clamp(0.1rem, 2.0vw, 1rem);
+}
+
+.copyright {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyright p {
+  margin: 5px 0;
+}
+
+.copyright a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
+
+#bttonemergency {
+  display: flex;
+  width: fit-content;
+  height: 10px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 30px;
+  background-color: red;
+}
+
+#bttonemergency:hover {
+  transform: scale(1.09);
+  border: 1px solid white
+}
+
+#containeSeach {
+  width: fit-content;
+  display: flex;
+  align-items: baseline;
 }

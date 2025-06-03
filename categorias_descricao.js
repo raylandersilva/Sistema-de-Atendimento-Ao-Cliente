@@ -2,28 +2,38 @@ const categoriasDescricao = {
 
   INFORMACAO: [
     {
-      descricao: "\n\n >INFORMAÇÃO< ",
+      descricao: "\n\n >FAÇA SUA INFORMAÇÃO AQUI< ",
       perguntas: [
-        { pergunta: 'QUAL INFORMAÇÃO FOI REPASSADO PARA O CLIENTE?:   ', type: 'textarea' }
+        { pergunta: 'INFORMAÇÃO OPCIONAL:   ', type: 'textarea' }
       ]
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE ORIENTADO A FAZER TESTE DO DIJUNTOR, E INFORMA QUE VAI RETORNAR A LIGAÇÃO CASO CONTINUE COM FALTA DE ENERGIA.",
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO(A) SOBRE SEU PERIODO DE FATURAMENTO (OSB), INFORMADO QUE O LEITURISTA AINDA VAI PASSAR NO LOCAL PARA COLETA.",
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO(A) SOBRE A CANELETA QUE É DE SUA RESPONSABILIDADE CONCERTAR PARA CONCLUIR A SOLITAÇÃO DE EMERGÊNCIA DE REPOSIÇÃO DE RAMAL PARTIDO.",
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE PAGAMENTO EM DÚPLICIDADE, QUE PODE SOLICITAR O ABATIMENTO DE DÉBITO EM ABERTO OU DEVOLUÇÃO EM CONTA CONRRENTE OU CONTA POUPANÇA.",
     },
     {
       descricao: "\n\n1111  >LIGAÇÃO CAIU CALLBACK SEM SUCESSO<\nLIGAÇÃO CAIU, FOI FEITO TENTATICA DE CALLBACK, MAS SEM SUCESSO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ]
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE QUERIA SOLICITAR EMERGENCIA E AGORA INFORMA QUE A ENERGIA VOLTOU NO MEIO DA LIGAÇÃO.",
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE QUERIA O NUMERO DA OUVIDORIA, FOI INFORMADO O NUMERO DA OUVIDORIA.",
     },
     {
       descricao: "\n\n1101  >INFORMAÇÃO - Conexão - Ligação Nova<\nCLIENTE INFORMADO SOBRE LIGAÇÃO NOVA.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1101  >INFORMAÇÃO - Conexão - Ligação Nova/PRAZO<\nCLIENTE INFORMADO SOBRE LIGAÇÃO NOVA, E ORIENTADO A AGUARDAR.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
     },
     {
       descricao: `
@@ -52,166 +62,115 @@ Para facilitar e atender melhor, você pode solicitar sua Reativação por aqui 
 Área rural	5 dias úteis
 Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede de distribuição que possibilite o pronto atendimento da unidade consumidora, contudo, caso haja necessidade de execução de obras para o atendimento, o prazo de vistoria começará a ser contado a partir do primeiro dia útil subsequente ao da conclusão da obra.`,
       
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1101  >INFORMAÇÃO - Conexão - Reativação/PRAZO<\nCLIENTE INFORMADO SOBRE REATIVAÇÃO, E ORIENTADO A AGUARDAR.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Data de Vencimento<\nCLIENTE INFORMADO SOBRE DATA DE VENCIMENTO.",
-      perguntas: [
-        { PERGUNTA: '\N\n', TYPE: 'TEXTAREA' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Resposta De Reclamação<\nCLIENTE INFORMADO SOBRE RESPOSTA DE RECLAMAÇÃO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Danos Elétricos<\nCLIENTE INFORMADO SOBRE DANOS ELÉTRICOS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Desligamento Definitivo<\nCLIENTE INFORMADO SOBRE DESLIGAMENTO DEFINITIVO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Desligamento Programado<\nCLIENTE INFORMADO SOBRE DESLIGAMENTO PROGRAMADO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     
     {
       descricao: "\n\n1103  >INFORMAÇÃO - Benefícios Tarifários<\nCLIENTE INFORMADO SOBRE BAIXA RENDA.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1103  >INFORMAÇÃO - Benefícios Tarifários<\nCLIENTE INFORMADO SOBRE O PROGRAMA ENERGIA AZUL PARA PESSOAS COM AUTISMO E OUTRAS DEFICIENCIAS.\n\nO PROGRAMA ENERGIA AZUL CONCEDE ATÉ 65% DE DESCONTO NA CONTA DE LUZ, POR MEIO DE PARCERIA COM A DISTRIBUIDORA EQUATORIAL ENERGIA. FUNCIONA COMO UMA REDE DE ARTICULAÇÃO PARA VIABILIZAR O ACESSO DE FAMÍLIAS DE BAIXA RENDA, COM PESSOAS COM ALGUM TIPO DE DEFICIÊNCIA, AO DIREITO AO DESCONTO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1115  >INFORMAÇÃO - Geração Distribuida - Energia Solar<\nCLIENTE INFORMADO SOBRE CONTATO DE GERAÇÃO DISTRIBUIDA - ENERGIA SOLAR.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE FATURAS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO QUERIA ANALISE SOBRE O VALOR DA FATURA.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE CONSULTA DE DÉBITO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
-      descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE FATURAS, ENVIO SOMENTE PARA O TITULAR, REPASSADO O NUMERO DE WHATSAPP DA CLARA PARA SOLICITAR CÓDIGO DE BARRAS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+      descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE FATURAS, ENVIO DE 2º VIA SOMENTE PARA O TITULAR, REPASSADO O NUMERO DE WHATSAPP DA CLARA PARA SOLICITAR CÓDIGO DE BARRAS.",
+
+    },
+    {
+      descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE FATURAS, ENVIO DE 2º VIA DE FATURAS JÁ PAGAS SOMENTE PELO SITE OU AGÊNCIA DE ATENDIMENTO PRESENCIAL.",
+
     },
     {
       descricao: "\n\n1106  >INFORMAÇÃO - Tarifas, Fatura e Cobrança<\nCLIENTE INFORMADO SOBRE PAGAMENTO DE FATURAS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1116  >INFORMAÇÃO - Religação Dentro do Prazo Estipulado<\nCLIENTE INFORMADO SOBRE RELIGAÇÃO, DENTRO DO PRAZO DA NOTA.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1116  >INFORMAÇÃO - Acompanhar Pedido<\nCLIENTE INFORMADO SOBRE O ANDAMENTO DO PEDIDO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1116  >INFORMAÇÃO - Prazos<\nCLIENTE INFORMADO SOBRE PRAZOS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1116  >INFORMAÇÃO - Prazos<\nCLIENTE INFORMADO SOBRE AINDA ESTÁ NO PERIODO DE LEITURA PARA O LEITURISTA VOLTAR AO LOCAL.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1107  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE RELIGAÇÃO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1107  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE RELIGAÇÃO SOMENTE COM FATURAS VENCIDAS PAGAS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1109   >INFORMAÇÃO< - Suspensão do Fornecimento\nCLIENTE INFORMADO SOBRE A SUSPENSÃO/CORTE DA ENERGIA.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1114   >INFORMAÇÃO< - Rede e Manutenção\nCLIENTE INFORMADO SOBRE A REDE/MANUNTENÇÃO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1118  >INFORMAÇÃO - Iluminação Pública<\nCLIENTE INFORMADO SOBRE ILUMINAÇÃO PÚBLICA, COM NÚMERO DE ATENDIMENTO REPASSADO DE ACORDO COM SEU MUNICÍPIO.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1118  >INFORMAÇÃO - Poda De Árvores<\nCLIENTE INFORMADO SOBRE PODA DE ÁRVORES, RESPONSABILIDADE DOS ÓRGÃOS MUNICIPAIS COMPETENTE DA SUA CIDADE, SENDO ORIENTADO A ENTRAR EM CONTATO COM ESSES ÓRGÃOS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO - Atividades Assesorias<\nCLIENTE INFORMADO SOBRE O NUMERO DO SETOR DE RETENÇÃO DA ATIVIDADES ASSESORIAS.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+
     },
     {
-      descricao: "\n\n1114  >INFORMAÇÃO -  Rede e Manutenção<\nCLIENTE INFORMADO SOBRE O DIJUNTOR, DIJUNTOR É DE RESPONSABILIDADE DO CLIENTE.",
-      perguntas: [
-        { pergunta: '\n\n', type: 'textarea' }
-      ],
+      descricao: "\n\n1114  >INFORMAÇÃO -  Rede e Manutenção<\nCLIENTE INFORMADO SOBRE O DIJUNTOR, INFORMADO QUE O DIJUNTOR É DE RESPONSABILIDADE DO CLIENTE.",
     },
     
   ],
@@ -228,6 +187,30 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
   SOLICITACOES: [
     {
       descricao: "\n\n2ª VIA DE FATURA \n\nCLIENTE SOLICITOU O ENVIO DA(S) FATURA(S) NO SEU WHATSAPP.\nREALIZADO CONFORME PEDIDO DO CLIENTE",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular ou Representante Legal.",
+        "PRAZOS: Atendido no ato do pedido.",
+        "ONDE SOLICITAR: Agência de Atendimento / Atendimento Credenciado / Central de Atendimento / Clara Assistente Virtual / Site.",
+        "TAXAS E/OU CUSTOS DE SEGUNDA VIA IMPRESSO NO PRESENCIAL:",
+        "- Monofásico/Bifásico/Trifásico: R$ 3,67 a R$ 3,88 (varia por região).",
+        "- Alta Tensão: R$ 7,37 a R$ 7,79 (varia por região).",
+        "DOCUMENTAÇÃO NECESSÁRIA:",
+        "- Pessoa Física:",
+        "  * Titular: RG e CPF ou documento oficial com foto.",
+        "  * Representante: RG e CPF do Titular e Representante, Procuração.",
+        "- Pessoa Jurídica:",
+        "  * Sócio: Contrato ou estatuto social, CNPJ, RG e CPF do sócio.",
+        "  * Representante: Contrato ou estatuto social, CNPJ, RG e CPF do sócio e representante, Procuração.",
+        "ATENÇÃO:",
+        "- Novo RG considera apenas o CPF na Carteira de Identidade Nacional (CIN).",
+        "- Antigas carteiras de identidade válidas até 28/02/2032.",
+        "- Repetir o número do CPF no campo do RG em atualizações cadastrais.",
+        "RESPONSABILIDADES:",
+        "- Emitir 2ª via no SAP Comercial quando solicitado.",
+        "- Orientar sobre canais digitais para emissão sem custo.",
+        "CANAL DIGITAL:",
+        "- App, Site e WhatsApp Clara permitem emissão gratuita da 2ª via.",
+      ],
       perguntas: [
         {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
         {pergunta: '\nQUAL TELEFONE/WHATSAPP?:   ', type: 'string' , valorPadrao: 'telefone'},
@@ -236,6 +219,12 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
     },
     {
       descricao: "\n\n2099 >CADASTRO DE FATURA POR E-MAIL< \n\nCLIENTE SOLICITA O ENVIO DE FATURA MENSALMENTE POR E-MAIL\nREALIZADO CONFORME PEDIDO DO CLIENTE.",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular da UC ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Central de Atendimento / Site.",
+        "PRAZOS: A alteração é feita de imediato no ato da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+      ],
       perguntas: [
         {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
         {pergunta: '\nQUAL E-MAIL?   ', type: 'string'}
@@ -243,6 +232,12 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
     },
     {
       descricao: "\n\n3012 >CADASTRO DE FATURA POR WHATSAPP< \n\nCLIENTE SOLICITA O ENVIO DE FATURA MENSALMENTE POR WHATSAPP\nREALIZADO CONFORME PEDIDO DO CLIENTE.",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular da UC ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Central de Atendimento / Site.",
+        "PRAZOS: A alteração é feita de imediato no ato da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+      ],
       perguntas: [
         {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
         {pergunta: '\nQUAL WHATSAPP?   ', type: 'string'}
@@ -250,6 +245,12 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
     },
     {
       descricao: "\n\n2100  >CANCELAMENTO DE FATURA POR E-MAIL< \n\nCLIENTE SOLICITA O CANCELAMENTO DO ENVIO DE FATURA POR E-MAIL.\n REALIZADO CONFORME PEDIDO DO CLIENTE.",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular da UC ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Central de Atendimento / Site.",
+        "PRAZOS: A alteração é feita de imediato no ato da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+      ],
       perguntas: [
         {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
         {pergunta: '\nDESEJA RECEBER EM?:   ', type: 'checkbox', options: ['SEU ENDEREÇO','WHATSAPP']},
@@ -257,6 +258,12 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
     },
     {
       descricao: "\n\n3015  >CANCELAR FATURA POR WHATSAPP< \n\nCLIENTE SOLICITA O CANCELAMENTO DO ENVIO DE FATURA POR WHATSAPP.\n REALIZADO CONFORME PEDIDO DO CLIENTE.",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular da UC ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Central de Atendimento / Site.",
+        "PRAZOS: A alteração é feita de imediato no ato da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+      ],
       perguntas: [
         {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
         {pergunta: '\nDESEJA RECEBER EM?:   ', type: 'checkbox', options: ['SEU ENDEREÇO','E-MAIL']},
@@ -280,9 +287,7 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
       descricao: "\n\n 2129 >Gravação Telefônica< \n\n>CLIENTE SOLICITA GRAVAÇÕES DE LIGAÇÕES.",
       perguntas: [
         { pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:  ', type: 'checkbox', options: ['SIM']},
-        { pergunta: '\nPROTOCOLO(S)   ',type: 'textarea'},
-        { pergunta: '\nDATA   ',type: 'string'},
-        { pergunta: '\nHORÁRIO    ',type: 'string'},
+        { pergunta: '\nPROTOCOLO(S) SOLICITADO(S)   ',type: 'textarea', valorPadrao: '\n  PROTOCOLO>\n  DATA E HORARIO>\n\n  PROTOCOLO>\n  DATA E HORARIO>\n\n  PROTOCOLO>\n  DATA E HORARIO>\n\n',},
         { pergunta: '\nMEIO DE ENVIO:   ', type: 'checkbox', options: [' E-MAIL', ' BUSCAR NA AGÊNCIA'] },
         { pergunta: '\nE-MAIL   ',type: 'string'},
         { pergunta: '\nINFORMADO O PRAZO DE 5 DIAS ÚTEIS?:  ', type:"checkbox", options: ['SIM']},
@@ -298,6 +303,56 @@ Atenção: No prazo de vistoria, a distribuidora verifica a existência da rede 
   ],
 
   SOMENTE_NA_AGENCIA_OU_SITE: [
+    {
+      descricao: `1111 INFORMAÇÃO Entrega Alternativa - Alteração do endereço de recebimento da fatura.`,
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular ou Representante Legal.",
+        "ONDE SOLICITAR: Agências de Atendimento / Atendimento Credenciado / Site.",
+        "PRAZOS: 5 dias úteis para atendimento da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+        "DOCUMENTAÇÃO NECESSÁRIA:",
+        "- Pessoa Física:",
+        "  * Titular: RG e CPF ou documento oficial com foto.",
+        "  * Representante: RG e CPF do Titular e Representante, Procuração.",
+        "- Pessoa Jurídica:",
+        "  * Sócio: Contrato ou estatuto social, CNPJ, RG e CPF do sócio.",
+        "  * Representante: Contrato ou estatuto social, CNPJ, RG e CPF do sócio e representante, Procuração.",
+        "ATENÇÃO:",
+        "- Com o novo RG, apenas o número de CPF será considerado na Carteira de Identidade Nacional (CIN).",
+        "- O novo RG é obrigatório, mas as antigas carteiras de identidade serão válidas até 28/02/2032.",
+        "- Em casos de Atualização Cadastral, repetir o número do CPF no campo do RG.",
+        "QUANDO GERAR A SOLICITAÇÃO:",
+        "- Sempre que o cliente desejar receber a fatura de uma UC em outro endereço que não seja o cadastrado.",
+        "EXEMPLO:",
+        "- Cliente com duas UC’s (São Luís e Barreirinhas) pode optar por receber as faturas de Barreirinhas na UC de São Luís.",
+      ],
+    },
+    {
+      descricao: `1111 INFORMAÇÃO CLIENTE INFORMADO SOBRE LIGAÇÃO PROVISÓRIA, SOMENTE NÁ AGÊNCIA PRESENCIALMENTE`,
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado.",
+        "PRAZOS: ",
+        "- 5 dias úteis de antecedência para carga até 30 kW.",
+        "- 30 dias úteis de antecedência para carga acima de 30 kW.",
+        "TAXAS E/OU CUSTOS: Calculados conforme equipamentos declarados e período de utilização.",
+        "DOCUMENTAÇÃO NECESSÁRIA:",
+        "- Pessoa Física:",
+        "  * Titular: RG e CPF ou documento oficial com foto.",
+        "  * Representante: RG e CPF do Titular e Representante, Procuração.",
+        "- Pessoa Jurídica:",
+        "  * Sócio: Contrato ou estatuto social, CNPJ, RG e CPF do sócio.",
+        "  * Representante: Contrato ou estatuto social, CNPJ, RG e CPF do sócio e representante, Procuração.",
+        "CRITÉRIOS PARA REGISTRO:",
+        "- Pagamento de débitos existentes (não prescritos) na área de concessão.",
+        "- Cargas acima de 75 kW devem ser direcionadas ao atendimento corporativo.",
+        "ATENÇÃO:",
+        "- Equipamento de medição obrigatório para:",
+        "  * Cargas acima de 15 kW com período superior a 5 dias.",
+        "  * Parques, circos, obras ou similares, independentemente da carga ou duração.",
+        "- Padrão de medição exigido pela concessionária deve estar instalado.",
+      ],
+    },
     {
       descricao: `
 1111 >INFORMAÇÃO<
@@ -342,6 +397,12 @@ CNPJ`,
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE DEVOLUÇÃO DE CRÉDITO, SOMENTE NA AGÊNCIA.",
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular ou Representante legal.",
+        "ONDE SOLICITA: Agência de Atendimento / Posto de Atendimento Credenciado",
+        "PRAZOS: Crédito em espécie: 30 Dias (U) / Crédito em fatura em aberto: 05 Dias (U)",
+        "TAXAS E/OU CUSTOS: Esta atividade não condiciona custos.",
+      ],
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE CANC. ENTREGA ALTERNATIVA, SOMENTE NA AGÊNCIA.",
@@ -478,6 +539,23 @@ IPTU - Carnê de Imposto Predial e Territorial Urbano IPTU (zona urbana
 ITR - Comprovante de pagamento do Imposto sobre a Propriedade Territorial Rural	
 ITBI - Comprovante de pagamento do Imposto de Transmissão de Bens Imóveis	
 Usucapião`,
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular ou Representante Legal.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Site.",
+        "PRAZOS: 5 dias úteis, urbano ou rural.",
+        "DOCUMENTAÇÃO NECESSÁRIA:",
+        "- Pessoa Física:",
+        "  * Titular: RG e CPF ou documento oficial com foto.",
+        "  * Representante: RG e CPF do Titular e Representante, Procuração.",
+        "- Pessoa Jurídica:",
+        "  * Sócio: Contrato ou estatuto social, CNPJ, RG e CPF do sócio.",
+        "  * Representante: Contrato ou estatuto social, CNPJ, RG e CPF do sócio e representante, Procuração.",
+        "TAXAS E/OU CUSTOS: Verifique na Agência ou Site.",
+        "DOCUMENTAÇÃO DO IMÓVEL:",
+        "- Posse: Contrato de Locação, Financiamento, Recibo, Escritura de Promessa, Arrendamento, Documento da Justiça, Declaração de Posse, Ofício, IPTU, ITR.",
+        "- Propriedade: Contrato de Compra e Venda, Escritura Pública, Matrícula, Escritura de Permuta, ITBI, Usucapião.",
+        "- Outros: Certidão de Óbito, Certidão de Casamento Averbada, Partilha de Bens.",
+      ],
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE VISTORIA, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
@@ -489,16 +567,13 @@ Usucapião`,
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE AUMENTO/DIMINUIÇÃO DE CARGA, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
     },
     {
-      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE TROCA DE LOCAL DO MEDIDOR, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
-    },
-    {
-      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE TROCA DE MEDIDOR, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
-    },
-    {
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE TROCA DE TITULARIDADE, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
     },
     {
       descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE TROCA DE RAMAL DE SERVIÇO, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
+    },
+    {
+      descricao: "\n\n1111  >INFORMAÇÃO<\nCLIENTE INFORMADO SOBRE DESLOCAMENTO DE RAMAL DE SERVIÇO, SOMENTE NA AGÊNCIA OU SITE, COM A DOCUMENTAÇÃO NECESSÁRIA.",
     },
   ],
 
@@ -644,6 +719,28 @@ Usucapião`,
       ]
     },
     {
+      descricao: "\n\n1014 OU 1029-SAP H4NA >RECLAMAÇÃO< COBRANÇA POR IRREGULARIDADE/FATURA CNR",
+      alerts: [
+        'Caso o cliente possua alguma evidência para apresentar, oriente-o a levar na agência o quanto antes.',
+        'Oriente o cliente a fazer uma carta de defesa manuscrita, lembrando que não é um item obrigatório.',
+        'Prazo: 15 dias corridos',
+      ],
+      perguntas: [
+        { pergunta: 'RECLAMAÇÃO DO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE RECLAMA ...'},
+        { pergunta: '\nANÁLISE DO ATENDENTE:  ', type: 'textarea', valorPadrao: 'DE ACORDO COM O SISTEMA' },
+        { pergunta: '\nSOLUÇÃO PRETENDIDA PELO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE DESEJA ...' },
+        { pergunta: 'A QUANTO TEMPO MORA NA RESIDÊNCIA?:  ', type: 'string' },
+        { pergunta: 'O IMÓVEL É PRÓPRIO OU DE ALUGUEL?:  ', type: 'radio', options: ['PRÓPRIO', 'ALUGUEL'] },
+        { pergunta: 'CLIENTE ESTAVA PRESENTE NA HORA DA FISCALIZAÇÃO?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'CIENTE CIENTE DO PRAZO DE 15 CORRIDOS PARA RECEBIMENTO DA RESPOSTA?:  ', type: 'radio', options: ['SIM'] },
+        { pergunta: '\nMEIO DE RESPOSTA DA RECLAMAÇÃO:  ', type: 'radio', options: [' E-MAIL', ' CARTA NA AGÊNCIA', ' TELEFONE'] },
+        { pergunta: 'SE FOR E-MAIL/TELEFONE, QUAL SERIA?:  ', type: 'string', valorPadrao: 'telefone'},
+        { pergunta: '\nAUTORIZA TERCEIROS:  ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'TELEFONE / NOME E PARENTESCO:  ', type: 'string' },
+        { pergunta: '\nINFORMAÇÕES COMPLEMENTARES:  ', type: 'textarea' },
+      ]
+    },
+    {
       descricao: "\n\n2028  >RECLAMAÇÃO<  CONDUTA DE COLABORADOR. PRÓPRIO/PARCEIRO ",
       perguntas: [
         { pergunta: 'RECLAMAÇÃO DO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE RECLAMA DO ATENDIMENTO ...'},
@@ -742,12 +839,12 @@ Usucapião`,
         'Lembre-se de anexar o arquivo em excel da ferramenta de analise de fatura F.A.F.',
       ],
       perguntas: [
-        { pergunta: 'RECLAMAÇÃO DO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE RECLAMA ...'},
-        { pergunta: '\nLEITURA ATUAL:   ', type: 'string' },
-        { pergunta: '\nLEITURA QUE CONSTA NO COLETOR / DATA DE COLETA:  ', type: 'string' },
-        { pergunta: '\nREMEDIAÇÃO PRETENDIDA:   ', type: 'string' },
-        { pergunta: '\nANÁLISE DO ATENDENTE:  ', type: 'textarea', valorPadrao: 'DE ACORDO COM O SISTEMA' },
-        { pergunta: '\nSOLUÇÃO PRETENDIDA PELO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE DESEJA ...' },
+        { pergunta: 'RECLAMAÇÃO DO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE RECLAMA QUE O LEITURISTA COLETOU A LEITURA ERRADA'},
+        { pergunta: '\nLEITURA ATUAL INFORMADA PELO CLIENTE:   ', type: 'string' },
+        { pergunta: '\nLEITURA QUE FOI COLETADA PELO LEITURISTA:  ', type: 'string' },
+        { pergunta: 'DATA DA COLETA DA LEITURA PELO LEITURISTA:  ', type: 'string' },
+        { pergunta: '\nANÁLISE DO ATENDENTE:  ', type: 'textarea', valorPadrao: 'DE ACORDO COM O SISTEMA LEITURA DA FATURA 00/0000 ...' },
+        { pergunta: '\nSOLUÇÃO PRETENDIDA PELO CLIENTE:   ', type: 'textarea', valorPadrao: 'CLIENTE DESEJA REAJUSTE DA FATURA PARA O VALOR DA LEITURA CORRETA.' },
         { pergunta: '\nANEXOU A EVIDÊNCIA DA FERRAMENTA DE ANÁLISE DE FATURAS (F.A.F) EM EXCEL?:  ', type: "checkbox", options: ['SIM'] },
         { pergunta: '\nEM CASO DE FATURA CORRIGIDA, AUTORIZA RECEBER 2ª VIA, POR WHATSAPP?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'CASO SIM, QUAL NÚMERO DE TELEFONE?:  ', type: 'string', valorPadrao: 'telefone'},
@@ -855,29 +952,33 @@ Usucapião`,
     {
       descricao: "\n\n️ NÍVEL DE TENSÃO ️\n\nCLIENTE INFORMA QUE ESTÃO OCORRENDO OSCILAÇÕES NO FORNECIMENTO DE ENERGIA HÁ MAIS DE 7 DIAS.\n",
       alerts: [
+        'Cliente precisa ter uma solicitação emergencial de oscilação, há mais de 7 dias, para poder abrir nível de tensão',
         'Verificar no SAP CSS se já houve solicitação emergencial de oscilação. Caso não haja, abrir serviço emergencial de oscilação de energia no SAP, código 2061.',
-        'Caso haja solicitação anterior de [nível de tensão] e for há menos de 20 dias, abrir serviço emergencial de oscilação de energia no SAP, código 2061.',
+        'Caso haja solicitação anterior de [nível de tensão] e for há menos de 20 dias, abrir 1002 Nível de Tensão Reincidência.',
+        'Prazo: Até 15 dias corridos',
       ],
       perguntas: [
-        { pergunta: '\nPONTO DE REFERÊNCIA: ', type: 'textarea', valorPadrao: 'PRÓXIMO A ...' },
-        { pergunta: '️NESTE MOMENTO A INSTALAÇÃO ESTÁ SEM ENERGIA?: ', type: 'radio', options: ['NÃO'] },
+        { pergunta: 'PONTO DE REFERÊNCIA: ', type: 'textarea', valorPadrao: 'PROXIMO A ...' },
+        { pergunta: 'NESTE MOMENTO A INSTALAÇÃO ESTÁ COM ENERGIA?: ', type: 'radio', options: ['SIM'] },
         { pergunta: 'VIZINHOS RECLAMAM DO MESMO PROBLEMA?: ', type: 'radio', options: ['SIM', 'NÃO'] },
-        { pergunta: '️A ENERGIA FALTA E VOLTA RAPIDAMENTE?: ', type: 'radio', options: ['SIM', 'NÃO'] },
-        { pergunta: '️CLIENTE ADQUIRIU ALGUM EQUIPAMENTO ELETRÔNICO RECENTE?: ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'A ENERGIA FALTA E VOLTA RAPIDAMENTE?: ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'CLIENTE ADQUIRIU ALGUM EQUIPAMENTO ELETRÔNICO RECENTE?: ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'QUAL EQUIPAMENTO DA PERGUNTA ACIMA?: ', type: 'string' },
+        { pergunta: 'HOUVE ACRÉSCIMO DE CARGA RECENTEMENTE?: ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'EXISTE INDÚSTRIA OU COMÉRCIO PRÓXIMO?: ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'ELETRODOMÉSTICOS SE AUTO DESLIGAM?: ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'VIZINHO UTILIZA MOTOR, SOLDA, RAIO-X?: ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'HÁ QUANTO TEMPO O PROBLEMA VEM ACONTECENDO?: ', type: 'string' },
-        { pergunta: 'EXISTE HORÁRIO ESPECÍFICO PARA OSCILAÇÃO?: ', type: 'string' },
-        { pergunta: 'ACONTECE EM TODOS OS CÔMODOS DA INSTALAÇÃO OU APENAS EM ALGUNS?: ', type: 'string', valorPadrao: 'EM TODA A INSTALAÇÃO' },
-        { pergunta: 'QUAIS OS DIAS DA SEMANA OCORRE A OSCILAÇÃO?: ', type: 'checkbox', options: ['TODOS OS DIAS', 'FIM DE SEMANA', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA'] },
-        { pergunta: 'EM QUAL PERÍODO DO DIA OCORRE A OSCILAÇÃO?: ', type: 'checkbox', options: ['MANHÃ', 'TARDE', 'NOITE'] },
+        { pergunta: 'EXISTE HORÁRIO ESPECÍFICO PARA OSCILAÇÃO?: ', type: 'string', valorPadrao: 'O DIA TODO' },
+        { pergunta: 'QUAIS OS DIAS DA SEMANA OCORRE A OSCILAÇÃO?: ', type: 'checkbox', options: ['TODOS OS DIAS', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA','SÁBADO','DOMINGO'] },
         { pergunta: 'OCORRE SEMPRE NA MESMA HORA?: ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'QUANDO ESTÁ OSCILANDO, DEMORA MAIS DE 1 MINUTO?: ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'ACONTECE EM TODOS OS CÔMODOS DA INSTALAÇÃO OU APENAS EM ALGUNS?: ', type: 'string', valorPadrao: 'EM TODA A INSTALAÇÃO' },
         { pergunta: 'TIPO DE CONSUMIDOR: ', type: 'radio', options: ['RESIDENCIAL', 'RURAL', 'COMERCIAL'] },
-        { pergunta: 'QUAL O SEU TELEFONE PARA CONTATO?: ', type: 'string' },
-        { pergunta: 'PONTO DE REFERÊNCIA: ', type: 'textarea' },
         { pergunta: '\nMEIO DE COMUNICAÇÃO?: ', type: 'radio', options: ['TELEFONE', 'E-MAIL'] },
-        { pergunta: 'CASO E-MAIL, QUAL SERIA?: ', type: 'string' },
+        { pergunta: 'TELEFONE PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone'},
+        { pergunta: 'E-MAIL?: ', type: 'string' },
+        { pergunta: '\nINFORMOU O PRAZO DE 15 DIAS CORRIDOS?: ', type: 'radio', options: ['SIM'] },
         { pergunta: '\nINFORMAÇÕES COMPLEMENTARES:  ', type: 'textarea' },
       ]    
     }
@@ -890,6 +991,9 @@ Usucapião`,
         'Antes de solicitar, confirme com o cliente o ENDEREÇO/CONTA CONTRATO para não solicitar um desligamento indevido.',
         'Confirme que é o titular solicitando na ligação. Faça a confirmação de NOME COMPLETO, CPF, RG, DATA DE NASCIMENTO e NOME DA MÃE COMPLETO.',
         'Antes de solicitar, verifique se o cliente não está em período de faturamento [OSB] no SAP CSS.',
+        'Caso cliente queira desligamento pela leitura, solicite a leitura para o cliente que está no medidor/relogio atualmente',
+        'Caso cliente informe a leitura, faça uma comparação com a leitura da ultima fatura para verificar se está correto, se está aproximado',
+        'Lembre-se, para desligamento no SAP HANA é IMPORTANTE colocar o numero do local de consumo na hora de desligar',
       ],
       perguntas: [
         { pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:  ', type: 'checkbox', options: ['SIM']},
@@ -897,7 +1001,7 @@ Usucapião`,
         { pergunta: 'AUTORIZA FATURAMENTO POR MÉDIA:  ', type: 'radio',options: ['SIM', 'NÃO'] },
         { pergunta: 'LEITURA DO MEDIDOR DO CLIENTE CASO NÃO FOR PELA MÉDIA:   ', type: 'string' },
         { pergunta: 'MOTIVO:  ', type: 'string' },
-        { pergunta: 'VALOR EM ABERTO NESSA CC ANTES DO DESLIGAMENTO:  ', type: 'string' },
+        { pergunta: 'VALOR EM ABERTO NESSA CC ANTES DO DESLIGAMENTO:  ', type: 'string', valorPadrao: 'R$ 0,00' },
       ]
     }
   ],
@@ -930,6 +1034,14 @@ Usucapião`,
   DANOS: [
     {
       descricao: "\n\n️ DANOS ELÉTRICOS ️",
+      alerts: [
+        "Deverá ser aberta a solicitação de ressarcimento de Danos Elétricos Para reclamações registrada até 90 dias, casó for a mais de 90 dias, oriente a ir em uma agência de atendimento",
+        "Deverá ser aberta a solicitação de ressarcimento de Danos Elétricos sempre que o cliente entrar em contato conosco informando a perda de equipamentos, sejam eles Especiais (Geladeira, Frigobar, Equipamentos vitais etc.) ou Não Especiais (Televisor, Ventilador, Ar Condicionado etc.).",
+        "Pessoas jurídicas devem abrir reclamação para ressarcimento de danos elétricos nas agências de atendimento ou, para grandes clientes, na Central de Atendimento Grandes Clientes. O solicitante precisa apresentar um documento que comprove vínculo com a empresa.",
+        "EQUIPAMENTOS ESPECIAIS:São considerados equipamentos de acondicionamento/especiais aqueles utilizados para acondicionamento de alimentos perecíveis, de medicamentos ou equipamentos essenciais à vida",
+        "EQUIPAMENTOS NORMAIS: Todos os equipamentos elétricos que não se enquadram como Equipamentos de acondicionamento ou especiais. OBS: De acordo com o Ofício 212/2023-STD Aneel, equipamentos utilizados para armazenamento de bebidas alcoólicas não são considerados equipamentos especiais, como exemplo: Adegas e Cervejeiras.",
+        "Quando o atendente apenas prestar informações ao cliente referente ao pedido de ressarcimento, deverá ser registado informação no sistema na Categoria 1032 - Outras Informações ao Cliente",
+    ],
       perguntas: [
         { pergunta: 'CPF:   ', type: 'string' },
         { pergunta: 'RG:  ', type: 'string' },
@@ -953,12 +1065,25 @@ Usucapião`,
       ]
     },
     {
-      descricao: "\n\n DANOS MATERIAIS ",
-      perguntas: [
-        { pergunta: 'RECLAMA QUE:   ', type: 'string' },
-        { pergunta: 'DATA:  ', type: 'string' },
-        { pergunta: 'HORÁRIO:   ', type: 'string' },
-      ]
+      descricao: "\n\n DANOS MATERIAIS",
+      alerts: [
+        'DOCUMENTAÇÕES NECESSÁRIAS: Para perda de animais: comprovação de propriedade, laudo veterinário, preço médio de mercado, fotos e BO. Para bens perecíveis: quantidade deteriorada, nota fiscal/orçamento, fotos e BO. Para outros bens: dados do fornecedor, descrição do dano, orçamento, fotos e BO. Fotos e BO são obrigatórios em todos os casos.',
+        'DANOS MATERIAIS: Ressarcimento por problemas elétricos (animais, bens perecíveis, outros bens, lucro cessante). Solicitação por titular ou representante legal (com procuração). Locais: Central, Agências ou Postos Credenciados. Prazos: 5 anos para abrir, 1 dia para verificação técnica, 30 dias para documentação e resposta, 10 dias para pagamento. Sem custos.'
+        ],
+        perguntas: [
+          { pergunta: 'DATA DO OCORRIDO:  ', type: 'string' },
+          { pergunta: 'HORÁRIO DO OCORRIDO:   ', type: 'string' },
+          { pergunta: 'DESCRIÇÃO DO OCORRIDO:   ', type: 'string'},
+          { pergunta: '\n\n ITEM(S) PERDIDO(S):\n\n', type: 'textarea', valorPadrao: ' ITEM>\n ITEM>\n ITEM>\n\n' },
+          { pergunta: 'SOLUÇÃO PRETENDIDA:   ', type: 'checkbox', options: ['RESARCIMENTO', 'REPARO'] },
+          { pergunta: 'MEIO DE RESPOSTA DA RECLAMAÇÃO:  ', type: 'checkbox', options: [' E-MAIL', ' TELEFONE'] },
+          { pergunta: 'TELEFONE:  ', type: 'string', valorPadrao: 'telefone' },
+          { pergunta: 'E-MAIL:  ', type: 'string' },
+          { pergunta: '\nAUTORIZA TERCEIROS:  ', type: 'radio', options: ['SIM', 'NÃO'] },
+          { pergunta: 'TELEFONE / NOME E PARENTESCO:  ', type: 'string' },
+          { pergunta: 'FORMA DE RESSARCIMENTO:  ', type: 'radio', options: ['ABATIMENTO DE DÉBITOS', 'CRÉDITO EM FATURA', 'ORDEM DE PAGAMENTO', 'CONTA CORRENTE', 'CONTA POUPANÇA'] },
+          { pergunta: 'CLIENTE FOI ORIENTADO A PROVIDENCIAR OS SEGUINTES DOCUMENTOS, PARA ENTREGAR NA AGÊNCIA EM NO MÁXIMO 5 DIAS ÚTEIS DEPOIS DO PRAZO DA VISTORIA, JUNTO COM OS DOCUMENTOS PESSOAIS:  ', type: 'textarea' , valorPadrao: 'VERIFIQUE QUAIS DOCUMENTOS VAI SER PRECISO DE ACORDO COM OS ITENS PERDIDOS.'}
+        ]
     }
   ],
 
@@ -990,15 +1115,18 @@ Usucapião`,
 
   PROBLEMA_EQUIPAMENTO_DE_MEDICAO: [
     {
-      descricao: "\n\n 1017 PROBLEMA COM EQUIPAMENTO",
+      descricao: "\n\n 1017 PROBLEMA COM EQUIPAMENTO DE MEDIÇÃO / MEDIDOR / RELOGIO",
       alerts: [
+        'Caso o cliente tiver sem energia, NÃO abrá essa solicitação, Abra serviço emergencial falta de energia individual código 2049.',
         'Caso o equipamento de medição tenha sido furtado/roubado, orientar o cliente a ir até a agência com o boletim de ocorrência.'
       ],
       perguntas: [
         { pergunta: 'MOTIVO:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA QUE O DISPLAY DO EQUIPAMENTO ESTÁ APAGADO.' },
+        { pergunta: 'CLIENTE SE ENCONTRA COM PADRÃO DE ACORDO COM AS NORMAS DA EQUATORIAL?:  ', type: "checkbox", options: ['SIM'] },
+        { pergunta: 'CLIENTE ESTÁ COM ENERGIA?:  ', type: "checkbox", options: ['SIM'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: '\n:  ', type: "checkbox", options: ['ENTENDI'] },
+        { pergunta: '\nINFORMOU O PRAZO DE ATÉ 30 DIAS?:  ', type: "checkbox", options: ['SIM'] },
       ]
     }
   ],
@@ -1018,33 +1146,24 @@ Usucapião`,
   
   SERVIÇOS_EMERGENCIAIS: [
     {
-      descricao: "\n\n RECHAMADA-FALTA DE ENERGIA ",
-      perguntas: [
-        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE LIGOU NOVAMENTE E INFORMA QUE CONTINUA COM FALTA DE ENERGIA. PEDE AGILIDADE.' },
-        { pergunta: '\nÁ QUANTO TEMPO ESTÁ COM O PROBLEMA?: ',type: 'textarea', valorPadrao: 'HÁ MAIS DE 24 HORAS'},
-        { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
-        { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-      ]
-    },
-    
-    {
       descricao: "\n\n2052  SERVIÇO EMERGENCIAL > LUZ ACESA DURANTE O DIA ILUMINAÇÃO PUBLICA (Solicitação IP Prefeitura)",
       perguntas: [
+        { pergunta: 'POSSUI NÚMERO DO POSTE?, SE SIM QUAL?:   ', type: 'string', valorPadrao: 'NÃO'},
+        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: 'POSSUI NÚMERO DO POSTE?, SE SIM QUAL?:   ', type: 'string', valorPadrao: 'NÃO'},
-        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
     },
 
     {
       descricao: "\n\n2048  SERVIÇO EMERGENCIAL > Falta de Energia Individual",
       perguntas: [
+        { pergunta: 'MOTIVO DA FALTA DE ENERGIA:   ', type: 'radio', options: ['NÃO SOUBE INFORMAR','CANELA/TABOCA/BARRETA ESTÁ CAIDA','PROBLEMA NO TRANSFORMADOR PROXIMO','MEDIDOR PAROU/QUEIMOU','PROBLEMA NO RAMAL DE SERVIÇO DA UC'] },
         { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA FALTA DE ENERGIA INDIVIDUAL. PEDE AGILIDADE.' },
+        { pergunta: 'TESTE DO DISJUNTOR REALIZADO?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: 'TESTE DO DISJUNTOR REALIZADO?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
-        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
     },
 
@@ -1063,32 +1182,38 @@ Usucapião`,
     {
       descricao: "\n\n2050  SERVIÇO EMERGENCIAL > Falta de Energia Geral ",
       perguntas: [
+        { pergunta: 'MOTIVO DA FALTA DE ENERGIA:   ', type: 'radio', options: ['NÃO SOUBE INFORMAR','CANELA/TABOCA/BARRETA ESTÁ CAIDA','PROBLEMA NO TRANSFORMADOR PROXIMO'] },
+        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA FALTA DE ENERGIA COLETIVA. PEDE AGILIDADE.' },
+        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA FALTA DE ENERGIA COLETIVA. PEDE AGILIDADE.' },
-        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
     },
 
     {
       descricao: "\n\n2051  SERVIÇO EMERGENCIAL > Incêndio/Queimada ",
       perguntas: [
+        { pergunta: 'EMERGÊNCIA:  ', type: 'radio', options: [
+          'CLIENTE INFORMA QUE SEU MEDIDOR ESTÁ PEGANDO FOGO, PEDE AGILIDADE DA EQUIPE PARA NORMALIZAR',
+          'CLIENTE INFORMA QUE ESTÁ PEGANDO FOGO NA REDE PROXIMO A SUA CASA','CLIENTE INFORMA QUE ESTÁ PEGANDO FOGO NO POSTE PROXIMO A SUA CASA',
+          'CLIENTE INFORMA QUE ESTÁ PEGANDO FOGO NO TRANSFORMADOR PROXIMO A SUA CASA'
+        ] },
+        { pergunta: 'RISCO À VIDA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA QUE PRÓXIMO À SUA CASA HÁ UM INCÊNDIO NA REDE/POLE E SOLICITA QUE UMA EQUIPE VÁ EM CAMPO PARA NORMALIZAR A SITUAÇÃO.' },
-        { pergunta: 'RISCO À VIDA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
-        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
     },
 
     {
       descricao: "\n\n2054  SERVIÇO EMERGENCIAL > Choque/Vazamento ",
       perguntas: [
+        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA QUE HÁ UM VAZAMENTO DE ENERGIA NO LOCAL. PEDE AGILIDADE.' },
+        { pergunta: 'LOCAL DO VAZAMENTO DE ENERGIA:  ', type: 'radio', options: ['PROXIMO AO MEDIDOR DA U.C','NO POSTE PROXIMO DA U.C','EM UMA ARVORE PROXIMO A U.C'] },
+        { pergunta: 'RISCO À VIDA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
-        { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA QUE HÁ UM VAZAMENTO DE ENERGIA NO LOCAL. PEDE AGILIDADE.' },
-        { pergunta: 'RISCO À VIDA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
-        { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
 
       ]
     },
@@ -1121,17 +1246,19 @@ Usucapião`,
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
         { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA FALTA DE FASE EM SUA UNIDADE. PEDE AGILIDADE.' },
-        { pergunta: 'TESTE DOS DISJUNTORES REALIZADOS?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'PROBLEMA É COLETIVA OU INDIVIDUAL?:   ', type: 'radio', options: ['COLETIVA', 'INDIVIDUAL'] },
         { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
     },
 
     {
-      descricao: "\n\n2058  SERVIÇO EMERGENCIAL > Poste Abarroado ",
+      descricao: "\n\n2058  SERVIÇO EMERGENCIAL > Poste Abalroado/Caido/Prestes a Cair ",
       perguntas: [
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
         { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE INFORMA QUE UM POSTE ESTÁ ABALROADO PROXIMO A SUA UNIDADE . PEDE AGILIDADE.' },
+        { pergunta: 'ESTÁ COM FALTA DE ENERGIA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
+        { pergunta: 'A REDE DE ENERGIA ESTÁ NO CHÃO?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'RISCO À VIDA?:   ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
@@ -1151,10 +1278,11 @@ Usucapião`,
       descricao: "\n\n2061  SERVIÇO EMERGENCIAL > Avaliação Técnica de Fornecimento / Oscilações No Fornecimento De Energia",
       perguntas: [
         { pergunta: 'EMERGÊNCIA:  ', type: 'string', valorPadrao: 'CLIENTE SOLICITA UMA AVALIAÇÃO TÉCNICA DE FORNECIMENTO. PEDE AGILIDADE.' },
-        { pergunta: 'QUAL É O PROBLEMA?:  ', type: 'radio', options: ['OSCILAÇÃO','BAIXA TENSÃO','ALTA TENSÃO'] },
+        { pergunta: 'QUAL É O PROBLEMA?:  ', type: 'radio', options: ['OSCILAÇÃO(ENERGIA INDO E VOLTANDO)','BAIXA TENSÃO(ENERGIA FRACA)','ALTA TENSÃO(ENERGIA FORTE)'] },
         { pergunta: '\nPONTO DE REFERENCIA: ',type: 'textarea', valorPadrao: 'PROXIMO A ...'},
         { pergunta: 'TELEFONE/WHATSAPP PARA CONTATO:  ', type: 'string', valorPadrao: 'telefone' },
         { pergunta: '\nHORÁRIO?:  ', type: 'string', valorPadrao: 'O DIA TODO' },
+        { pergunta: 'CLIENTE É GERAÇÃO DISTRIBUIDA?:  ', type: 'radio', options: ['SIM', 'NÃO'] },
         { pergunta: 'GERAL OU INDIVIDUAL?:  ', type: 'radio', options: ['GERAL', 'INDIVIDUAL', 'NÃO SOUBE INFORMAR'] },
         { pergunta: 'SOLICITAÇÃO REINCIDENTE (RECHAMADA)?:  ', type: 'radio', options: ['SIM', 'NÃO'] }
       ]
@@ -1211,13 +1339,37 @@ Usucapião`,
     },
   ],
 
-  EQUATORIAL_RESOLVE_PA: [
+  EQUATORIAL_RESOLVE: [
     {
-        descricao: "\n\n1111  TRANSFERÊNCIA PARA RESOLVER PARÁ ",
+        descricao: "\n\n1111  TRANSFERÊNCIA PARA RESOLVER ",
+        alerts: [
+        'Antes de encaminhar o cliente, verifique se o mesmo não é GD (Geração Distribuida) (Energia Solar).',
+      ],
         perguntas: [
-            { pergunta: '> CLIENTE NÃO CONCORDA COM O VALOR DA(S) FATURA(S). ENCAMINHADO PARA A EQUIPE DO EQTL RESOLVE.\n\n FATURAS>:   ', type: 'textarea' },
+            { pergunta: 'CLIENTE É GERAÇÃO DISTRIBUIDA? ', type: 'checkbox', options: ['NÃO']},
+            { pergunta: '> RESOLVE - ', type: 'radio', options: ['MA','PA','PI','AL','AP'] },
+            { pergunta: '> CLIENTE NÃO CONCORDA COM O VALOR DA(S) FATURA(S). ENCAMINHADO PARA A EQUIPE DO EQTL RESOLVE.\n\n FATURA(S)>:   ', type: 'textarea' },
         ]
     }
+  ],
+  
+  ALTERACAO_CADASTRAL: [
+    {
+      descricao: '2092 Alterar Dados Parc de Negócio',
+      alerts: [
+        "QUEM PODE SOLICITAR: Titular da U.C.",
+        "ONDE SOLICITAR: Agência de Atendimento / Posto de Atendimento Credenciado / Central de Atendimento / Site.",
+        "PRAZOS: A alteração é feita de imediato no ato da solicitação.",
+        "TAXAS E/OU CUSTOS: Esta solicitação não condiciona custos.",
+        "LEMBRE-SE: Em atendimento, só podemos alterar telefone e e-mail, caso for outro dado, cliente vai ter que solicitar na Agência de Atendimento, Posto de Atendimento Credenciado ou Site com documentação necessária"
+      ],
+      perguntas: [
+        {pergunta: '\nREALIZADO CONFIMAÇÃO DE DADOS DE TITULARIDADE?:   ', type: 'checkbox', options: ['SIM']},
+        {pergunta: '\nQUAIS DADOS FORAM ALTERADOS?:   ', type: 'checkbox', options: ['TELEFONE','E-MAIL']},
+        {pergunta: '\nQUAL ERA TELEFONE/E-MAIL?:   ', type: 'string'},
+        {pergunta: '\nPARA QUAL FOI ALTERADO TELEFONE/E-MAIL?:   ', type: 'string' },
+      ],
+    },
   ],
 
 };

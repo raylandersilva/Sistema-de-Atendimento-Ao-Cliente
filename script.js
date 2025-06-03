@@ -1,335 +1,4 @@
 const toggleWindowFeatures = document.getElementById("toggleWindowFeatures");
-const estadosPorDDD = {
-  '98': 'MA',
-  '99': 'MA',
-  '82': 'AL',
-  '86': 'PI',
-  '89': 'PI',
-  '91': 'PA',
-  '93': 'PA',
-  '94': 'PA',
-  '96': 'AP',
-  '51': 'RS',
-  '53': 'RS',
-  '54': 'RS',
-  '55': 'RS',
-  '61': 'GO',
-  '62': 'GO',
-  '64': 'GO',
-};
-
-
-
-
-const infoEstado = {
-  'MA': { 
-    banner: 'https://ma.equatorialenergia.com.br/wp-content/uploads/2024/11/MA-1024x181.png', 
-    bottons: {
-      'SAP-MA': "http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=401&sap-language=PT",
-      'Telefones-MA': "https://webconsulta.equatorialenergia.com.br/maranhao",
-      'Endereços-MA': "https://ma.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/",
-      'Prazos-MA': "https://webconsulta.equatorialenergia.com.br/maranhao-3/",
-      'ATC-MA': "http://10.7.1.20:8090/account/index.rails",
-      'SOMOS-MA': "http://somos-ma.equatorialenergia.com.br/somos/index.php",
-      'FAF-MA': "http://10.6.1.18/reports/report/CORP-RELACIONAMENTO%20COM%20O%20CLIENTE/FERRAMENTA%20DE%20ANALISE%20DE%20FATURA/Analise%20de%20Faturamento_Cemar",
-      'Desligamento-MA': "https://ma.equatorialenergia.com.br/desligamento-programado/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE MARANHÃO
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:  R$ 10,73
-Bifásico:    R$ 14,79 
-Trifásico:   R$ 44,40
-    
-    Contatos Central Geração Distribuída
-geracaodistribuida.maranhao@equatorialenergia.com.br
-TEL: 0800 098 0055
-    
-    NUMERO DA CENTRAL DE VENDA/RETENÇÃO
-0800 728 9518',`,
-  },
-  'AL': { 
-    banner: 'https://al.equatorialenergia.com.br/wp-content/uploads/2024/11/AL-1024x179.png', 
-    bottons: {
-      'SAP-AL': "http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm",
-      'Telefones-AL': "https://webconsulta.equatorialenergia.com.br/alagoas",
-      'Endereços-AL': "https://al.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/",
-      'Prazos-AL': "https://webconsulta.equatorialenergia.com.br/alagoas-3/",
-      'ATC-AL': "file://10.181.75.23/ATC_Installer/DeskTopATC.application",
-      'SOMOS-AL': "https://somos-al.equatorialenergia.com.br/index.php",
-      'FAF-AL': "http://10.6.1.18/reports/report/CORP-RELACIONAMENTO%20COM%20O%20CLIENTE/FERRAMENTA%20DE%20ANALISE%20DE%20FATURA/Analise%20de%20Faturamento%20Eqtl%20Alagoas",
-      'Desligamento-AL': "https://al.equatorialenergia.com.br/desligamento-programado/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE ALAGOAS
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:   R$ 10,61
-Bifásico:     R$ 14,62 
-Trifásico:    R$ 43,90
-    
-    Contatos Central Geração Distribuída
-geracaodistribuida.alagoas@equatorialenergia.com.br
-TEL: 0800 082 2800
-    
-    NUMERO DA CENTRAL DE VENDA/RETENÇÃO
-0800 728 9518`,
-  },
-  'PI': { 
-    banner: 'https://pi.equatorialenergia.com.br//wp-content/uploads/2024/11/PI-1024x179.png', 
-    bottons: {
-      'SAP-PI': "http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm",
-      'Telefones-PI': "https://webconsulta.equatorialenergia.com.br/piaui",
-      'Endereços-PI': "https://pi.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/",
-      'Prazos-PI': "https://webconsulta.equatorialenergia.com.br/piaui-3/",
-      'ATC-PI': "http://10.6.10.170:8090/account/index.rails",
-      'SOMOS-PI': "https://somos-pi.equatorialenergia.com.br/somos/index.php",
-      'FAF-PI': "http://10.6.1.18/reports/report/CORP-RELACIONAMENTO%20COM%20O%20CLIENTE/FERRAMENTA%20DE%20ANALISE%20DE%20FATURA/Analise%20de%20Faturamento%20Eqtl%20Piaui",
-      'Desligamento-PI': "https://pi.equatorialenergia.com.br/desligamento-programado/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE PIAUI
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:  R$ 10,38 
-Bifásico:    R$ 14,30 
-Trifásico:   R$ 42,93
-    
-    Contatos Central Geração Distribuída
-geracaodistribuida.piaui@equatorialenergia.com.br
-TEL: 0800 025 0116
-    
-    NUMERO DA CENTRAL DE VENDA/RETENÇÃO
-0800 728 9518`,
-  },
-  'PA': { 
-    banner: 'https://pa.equatorialenergia.com.br/wp-content/uploads/2024/11/PA-1024x181.png', 
-    bottons: {
-      'SAP-PA': "http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm?sap-client=402&sap-language=PT",
-      'Telefones-PA': "https://webconsulta.equatorialenergia.com.br/para",
-      'Endereços-PA': "https://pa.equatorialenergia.com.br/informacoes-gerais/telefones-enderecos-e-links-uteis/",
-      'Prazos-PA': "https://webconsulta.equatorialenergia.com.br/para-3/",
-      'ATC-PA': "http://10.130.1.7:8083/account/index.rails",
-      'SOMOS-PA': "https://somos-pa.equatorialenergia.com.br/somos/index.php",
-      'FAF-PA': "http://10.6.1.18/reports/report/CORP-RELACIONAMENTO%20COM%20O%20CLIENTE/FERRAMENTA%20DE%20ANALISE%20DE%20FATURA/Analise%20de%20Faturamento_Celpa",
-      'Desligamento-PA': "https://pa.equatorialenergia.com.br/desligamento-programado/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE PARÁ
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:    R$ 10,72   
-Bifásico:      R$ 14,77 
-Trifásico:     R$ 44,35
-
-    Urgência [Até 4 horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:   R$ 53,78   
-Bifásico:     R$ 80,70 
-Trifásico:    R$ 134,52
-  
-    NUMERO DA CENTRAL DE VENDA/RETENÇÃO
-0800 728 9518
-    
-    ►CIDADES COM RELIGAÇÃO DE URGÊNCIA◄
-    
-Altamira	     08:00 – 18:00
-Ananindeua     08:00 – 18:00
-Bélem	         08:00 – 18:00
-Benevides	     08:00 – 18:00
-Castanhal	     08:00 – 18:00
-Itaituba	     08:00 – 18:00
-Marabá	       08:00 – 18:00
-Marituba	     08:00 – 18:00
-Mosqueiro	     08:00 – 18:00
-Outeiro	       08:00 – 18:00
-Santa Bárbara	 08:00 – 18:00
-Santa Izabel	 08:00 – 18:00
-Santarém	     08:00 – 18:00`,
-  },
-  'AP': { 
-    banner: 'https://ap.equatorialenergia.com.br//wp-content/uploads/2024/09/AP-1-1024x181.png', 
-    bottons: {
-      'SAP-AP': "https://ap-crm-prd.equatorial.corp:44301/sap/bc/bsp/sap/crm_ui_start?sap-client=405&sap-language=PT",
-      'Telefones-AP': "https://webconsulta.equatorialenergia.com.br/amapa",
-      'Endereços-AP': "https://ap.equatorialenergia.com.br/telefones-enderecos-e-links-uteis/",
-      'Prazos-AP': "https://webconsulta.equatorialenergia.com.br/amapa-3/",
-      'ATC-AP': "http://10.98.20.77:8090/account/index.rails",
-      'SOMOS-AP': "https://somos-ap.equatorialenergia.com.br/somos/index.php",
-      'Desligamento-AP': "https://ap.equatorialenergia.com.br/desligamento-programado/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE AMAPÁ
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-Monofásico:   R$ 10,38
-Bifásico:     R$ 14,29
-Trifásico:    R$ 42,92
-    
-Contatos Central Geração Distribuída
-amapa.geracaodistribuida@equatorialenergia.com.br
-TEL: 0800 096 9600
-    
-    NUMERO DA CENTRAL DE VENDA/RETENÇÃO
-0800 728 9518`,
-   },
-  'RS': { 
-    
-    bottons: {
-      'Telefones-RS': "https://ceee.equatorialenergia.com.br/ceee/locais-de-atendimento",
-      'Endereços-RS': "https://ceee.equatorialenergia.com.br/ceee/locais-de-atendimento",
-      'Prazos-RS': "https://webconsulta.equatorialenergia.com.br/rio-grande-do-sul-2/",
-      'ATC-RS': "http://10.63.79.108:8090/home/index.rails",
-      'SOMOS-RS': "https://somos-rs.equatorialenergia.com.br/somos/index.php",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE RS
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-
-Monofásico:   R$ 10,35
-Bifásico:     R$ 14,25
-Trifásico:    R$ 42,80
-
-    URGÊNCIA
-Monofásico:   R$ 51,90	
-Bifásico:     R$ 77,87	
-Trifásico:    R$ 129,80
-
-Central de Atendimento Geração Distribuída
-0800 642 6643
-
-Clara - Apenas WhatsApp
-(51) 3382-5500
-
-Central de Atendimento Equatorial:
-0800 721 2333
-
-Deficientes Auditivos:
-0800 642 2333
-
-Central de Atendimento Grandes Clientes
-0800 642 2800
-
-Central de Atendimento Ouvidoria
-0800 642 4900`,
-   },
-  'GO': { 
-    
-    banner: 'https://go.equatorialenergia.com.br//wp-content/uploads/2023/07/Canais-de-atendimento-ajustado-1-1-1024x198.jpg',
-    bottons: {
-      'SAP-GO': "http://10.204.10.156:4002/atc/login",
-      'Telefones-GO': "https://webconsulta.equatorialenergia.com.br/goias-2/",
-      'Endereços-GO': "https://webconsulta.equatorialenergia.com.br/goias-3/",
-      'Prazos-GO': "https://webconsulta.equatorialenergia.com.br/goias/",
-    },
-    info: `QUADRO DE INFORMAÇÕES DO ESTADO DE GO
-    
-  CÓDIGOS DE MOTIVOS DE REJEIÇÃO DE MEDIDORES.
-
-M1 ► PADRÃO COMPLETO INEXISTENTE.
-M2 ► CLIENTE NÃO ACEITOU O FINACIAMENTO DO PADRÃO.
-M3 ► CLIENTE AUSENTE.
-M4 ► PENDÊNCIA DE ROLDANA.
-M5 ► PENDÊNCIA DE CAIXA.
-M6 ► PENDÊNCIA DE DIJUNTOR.
-M7 ► PENDÊNCIA DE ATERRAMENTO.
-M8 ► PENDÊNCIA DE BENGALA(CANELETA).
-M9 ► PENDÊNCIA DE ELETRODUTO.  
-CÓDIGO 30 ► PROBLEMA/DEFEITO TRANSFORMADOR.
-    
-    TAXA DE RELIGAÇÕES
-    
-    Normal [Até 24horas úteis/comercial (08:00 até 18:00 Seg-Sex)]
-  Monofásico: R$ 10,78	
-  Bifásico:   R$ 14,85	
-  Trifásico:  R$ 44,60`,
-   },
-};
 
 // const
 const toggleSapAuto = document.getElementById("toggleSapAuto");
@@ -522,7 +191,7 @@ function limparCampos() {
 
   const formExistente = document.getElementById('popupForm');
   if (formExistente) {
-    document.getElementsByClassName('containerforms')[0].removeChild(formExistente);
+    formExistente.parentNode.removeChild(formExistente);
   }
 
   const selectDescricao = document.getElementById('descricao');
@@ -574,7 +243,7 @@ function abrirUrlPorDDD(ddd) {
 
 function exibirPopupSelecaoEstado() {
   const popup = document.createElement('div');
-  popup.id = 'popup-selection-state'
+  popup.id = 'popup-selection-state';
   popup.style = `
       position: fixed;
       top: 50%;
@@ -586,51 +255,72 @@ function exibirPopupSelecaoEstado() {
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       z-index: 1000;
+      width: 300px;
+      max-height: 80vh;
+      overflow-y: auto;
   `;
 
   const title = document.createElement('h3');
   title.textContent = 'Selecione o Estado:';
+  title.style = 'text-align: center; margin-bottom: 15px;';
   popup.appendChild(title);
 
-  const select = document.createElement('select');
-  select.style = 'width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 4px; background-color: blue;';
+  // Criar container para os botões dos estados
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.style = 'display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;';
+  
+  // Criar botões para cada estado
   for (const estado in infoEstado) {
-      const option = document.createElement('option');
-      option.value = estado;
-      option.textContent = estado;
-      select.appendChild(option);
-  }
-  popup.appendChild(select);
-
-  const confirmButton = document.createElement('button');
-  confirmButton.textContent = 'Confirmar';
-  confirmButton.style = 'margin-right: 10px; padding: 10px; background-color: green; color: white; border: none; border-radius: 4px;';
-  confirmButton.onclick = () => {
-      const estadoSelecionado = select.value;
-      if (estadoSelecionado) {
-          const { banner, info } = infoEstado[estadoSelecionado];
+      const estadoButton = document.createElement('button');
+      estadoButton.textContent = estado;
+      estadoButton.style = `
+          padding: 10px;
+          background-color: #2a4bac;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          font-size: 15pt;
+      `;
+      estadoButton.onmouseover = () => estadoButton.style.backgroundColor = '#3a5cbc';
+      estadoButton.onmouseout = () => estadoButton.style.backgroundColor = '#2a4bac';
+      
+      estadoButton.onclick = () => {
+          const { banner, info } = infoEstado[estado];
           document.getElementById('banner').src = banner;
-          document.getElementById('estadoTelefone').textContent = estadoSelecionado;
+          document.getElementById('estadoTelefone').textContent = estado;
           document.getElementById('dadosDeInfor').value = info;
           document.getElementById('banner').style.display = 'block';
           document.getElementById('bttonSAP').style.display = 'flex';
           document.getElementById('dadosDeInfor').style.display = 'block';
-          criarBotoesPorEstado(estadoSelecionado)
+          criarBotoesPorEstado(estado);
           document.body.removeChild(popup);
           if (toggleSapAuto.checked) {
-            abrirSapPorEstado();
+              abrirSapPorEstado();
           }
-      }
-  };
-  popup.appendChild(confirmButton);
+      };
+      
+      buttonsContainer.appendChild(estadoButton);
+  }
+  popup.appendChild(buttonsContainer);
 
-  const cancelButton = document.createElement('button');
-  cancelButton.textContent = 'Cancelar';
-  cancelButton.style = 'padding: 10px; background-color: red; color: white; border: none; border-radius: 4px;';
-  cancelButton.onclick = () => {
+  // Botão de fechar
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Fechar';
+  closeButton.style = `
+      width: 100%;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  `;
+  closeButton.onclick = () => {
       document.body.removeChild(popup);
   };
-  popup.appendChild(cancelButton);
+  popup.appendChild(closeButton);
 
   document.body.appendChild(popup);
 }
@@ -753,30 +443,44 @@ function criarPopUp(perguntas) {
     // Remove qualquer pop-up existente
     let formExistente = document.getElementById('popupForm');
     if (formExistente) {
-      document.getElementsByClassName('containerforms')[0].removeChild(formExistente);
+      formExistente.parentNode.removeChild(formExistente);
     }
     let form = document.createElement('form');
 
     let formTitle = document.createElement('h2');
     formTitle.textContent = "↓►Informações a serem confirmadas◄↓";
     formTitle.style = 'background: crimson;border-radius: 20px;padding: 10px;width: fit-content;box-shadow: black 5px 7px 10px;margin: auto;margin-bottom: 15px;font-size: 1em;';
-    form.style = 'font-family: Arial, sans-serif;color: rgb(255, 255, 255);display: flex;left: 0px;top: 90px;padding: 20px;background-color: #160b7a;border-radius: 8px;box-shadow: rgb(0, 0, 0) 0px 0px 25px;flex-wrap: wrap;align-items: baseline;';
+    form.style = 'font-family: Arial, sans-serif;color: rgb(255, 255, 255);display: flex;padding: 20px;background-color: #160b7a;border-radius: 8px;box-shadow: rgb(0, 0, 0) 0px 0px 25px;flex-wrap: wrap;align-items: baseline;';
     form.appendChild(formTitle);
     
     let containerForms = document.getElementsByClassName('containerforms')[0];
     if (containerForms) {
-      if (containerForms.children.length > 0) {
-        containerForms.insertBefore(form, containerForms.children[1] || null);
+      form.setAttribute("id", "popupForm");
+
+      // Adiciona o formulário diretamente no body, logo após o containerforms
+      if (containerForms.nextSibling) {
+        document.body.insertBefore(form, containerForms.nextSibling);
       } else {
-        containerForms.appendChild(form);
+        document.body.appendChild(form);
       }
     } else {
       console.error("Elemento com a classe 'containerforms' não encontrado.");
     }
+
     
     form.setAttribute("id", "popupForm");
+    let bttonemergency = document.createElement('h3');
+    bttonemergency.textContent = "EMERGENCIA";
+    bttonemergency.setAttribute("id", "bttonemergency");
+    bttonemergency.addEventListener('click', function() {
+    window.open(
+        'https://forms.office.com/Pages/ResponsePage.aspx?id=UUVNECctOUiHsoYmSlIQpRtvS2oXzwlBiQGbf6zGA45UQzBVOTFSMEtHVFo4UzA5WUZaN1VPUUtOQS4u', 
+        '_blank'
+      );
+    });
+    form.appendChild(bttonemergency);
     let respostas = {};
-
+    
     perguntas.forEach((perguntaObj, index) => {
       let label = document.createElement('label');
       label.style = 'width: 100%;'
@@ -787,7 +491,11 @@ function criarPopUp(perguntas) {
         case 'checkbox':
           let checkboxGroup = document.createElement('div');
           checkboxGroup.classList.add('checkbox-group');
-
+          checkboxGroup.style = `display: flex; flex-wrap: wrap; flex: 1; align-items: center; gap: 10px;`;
+          if (perguntaObj.options.length > 3) {
+            checkboxGroup.style += ' flex-direction: column;';
+          }
+          
           perguntaObj.options.forEach(option => {
             let checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
@@ -807,6 +515,11 @@ function criarPopUp(perguntas) {
         case 'radio':
           let radioGroup = document.createElement('div');
           radioGroup.classList.add('radio-group');
+          radioGroup.style = `display: flex; flex-wrap: wrap; flex: 1; align-items: center; gap: 10px;`;
+          if (perguntaObj.options.length > 3) {
+            radioGroup.style += ' flex-direction: column;';
+          }
+
           perguntaObj.options.forEach(option => {
             let radio = document.createElement('input');
             radio.type = 'radio';
@@ -824,8 +537,9 @@ function criarPopUp(perguntas) {
         case 'textarea':
           let textarea = document.createElement('textarea');
           textarea.name = `pergunta_${index}`;
+          textarea.id = `pergunta`;
           textarea.style.width = '100%';
-          textarea.rows = '3';
+          textarea.rows = '6';
           textarea.style.borderRadius = '15px';
           form.appendChild(textarea);
           respostas[perguntaObj.pergunta] = '';
@@ -913,10 +627,13 @@ function criarPopUp(perguntas) {
       return isValid;
     }
 
+    let buttonWrapper = document.createElement('div');
+    buttonWrapper.style = 'display: flex; gap: 10px; width: 100%; margin-top: 20px;';
+
     let submitButton = document.createElement('button');
     submitButton.textContent = 'Confirmar Checklist';
     submitButton.type = 'button';
-    submitButton.style = 'width: 100%;height: 50px;background-color: green;color: white;position: relative;';
+    submitButton.style = 'flex: 1; height: 50px; background-color: green; color: white; border: none; border-radius: 5px; cursor: pointer;';
     submitButton.onclick = () => {
       if (validarCheckboxes() && validarRadio()) {
         let inputs = form.elements;
@@ -939,14 +656,37 @@ function criarPopUp(perguntas) {
           }
         });
 
-        document.getElementsByClassName('containerforms')[0].removeChild(form);
+        const formExistente = document.getElementById('popupForm');
+        if (formExistente) {
+          formExistente.parentNode.removeChild(formExistente);
+        }
+
+        // Scroll para o container
+        containerForms.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
         resolve(respostas);
       }
     };
 
-    form.appendChild(submitButton);
+    let closeButton = document.createElement('button');
+    closeButton.textContent = 'Fechar';
+    closeButton.type = 'button';
+    closeButton.style = 'flex: 1; height: 50px; background-color: crimson; color: white; border: none; border-radius: 5px; cursor: pointer;';
+    closeButton.onclick = () => {
+      form.remove(); // remove o popupForm
+    };
+
+    // Adiciona os botões à div e depois ao formulário
+    buttonWrapper.appendChild(submitButton);
+    buttonWrapper.appendChild(closeButton);
+    form.appendChild(buttonWrapper);
+
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
+
+
+
 
 function verificarDiaDaSemana() {
   const hoje = new Date();
@@ -1190,27 +930,35 @@ window.onload = () => {
   criarBotaoFlutuante();
 };
 
-function selecionarECopiar(input) {
-  // Seleciona todo o texto dentro do input
-  input.select();
-}
 
 // Função para exibir alertas
 function exibirAlertas(alertas) {
   const popup = document.createElement('div');
   popup.style = `
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #193082;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      width: 90%;
-  `;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(25, 48, 130);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+    z-index: 1000;
+    width: 90%;
+    max-height: 75%;
+    overflow: auto;
+    display: flex;
+    flex-flow: column wrap;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10pt;
+    font-size: clamp(0.1rem, 2.5vw, 1rem);
+    `
+    ;
+
+  
 
   const title = document.createElement('h3');
   title.textContent = 'Aviso Importante';
@@ -1229,7 +977,7 @@ function exibirAlertas(alertas) {
   popup.appendChild(title);
 
   const lista = document.createElement('ul');
-  lista.style = 'list-style: none; padding: 0;';
+  lista.style = 'list-style: none; padding: 0;overflow-y: auto;';
   alertas.forEach((alerta) => {
       const item = document.createElement('li');
       item.textContent = `⚠️ ${alerta}`;
@@ -1241,17 +989,73 @@ function exibirAlertas(alertas) {
   const botaoFechar = document.createElement('button');
   botaoFechar.textContent = 'Fechar';
   botaoFechar.style = `
-      margin-top: 20px;
-      padding: 10px;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-bottom: 10px;
   `;
   botaoFechar.onclick = () => document.body.removeChild(popup);
   popup.appendChild(botaoFechar);
 
   document.body.appendChild(popup);
+}
+window.onbeforeunload = function() {
+  return "Você tem certeza que deseja sair?";
+};
+
+// Função para copiar o conteúdo do input
+function copiarTexto(inputSelector) {
+  const inputElement = document.querySelector(inputSelector);
+  
+  if (inputElement) {
+    // Seleciona o conteúdo do input
+    inputElement.select();
+    inputElement.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+    // Copia o conteúdo para a área de transferência
+    document.execCommand("copy");
+
+    // Alerta ou notifica o usuário que o conteúdo foi copiado
+    // alert("Texto copiado: " + inputElement.value);
+  }
+}
+
+// Função para colar o conteúdo no input
+async function colarTexto(inputSelector) {
+  const inputElement = document.querySelector(inputSelector);
+
+  if (inputElement) {
+    try {
+      // Usando a API Clipboard para acessar o conteúdo da área de transferência
+      const texto = await navigator.clipboard.readText();
+
+      // Coloca o texto no input
+      inputElement.value = texto;
+    } catch (err) {
+      console.error("Falha ao colar o conteúdo:", err);
+    }
+  }
+}
+
+// Função para limpar o conteúdo do input
+function limparTexto(inputSelector) {
+  const inputElement = document.querySelector(inputSelector);
+
+  if (inputElement) {
+    // Limpa o conteúdo do input
+    inputElement.value = '';
+  }
+}
+
+function search() {
+    var query = document.getElementById('query').value;
+    window.open('https://www.bing.com/search?q=' + encodeURIComponent(query), '_blank');
 }

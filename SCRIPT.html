@@ -1,69 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulário</title>
-<link rel="stylesheet" href="styles.css">
-<script src="categorias_descricao.js" defer></script>
-<script src="informativos.js" defer></script>
-<script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="alarm.css">
+  <script src="categorias_descricao.js" defer></script>
+  <script src="informativos.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="alarm.js" defer></script>
 </head>
+
 <body>
-<!-- <div class="snow"></div> -->
+  <!-- <div class="snow"></div> -->
+  <!-- Popup de Alarmes -->
+  <div id="alarmPopup"
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #193082; padding: 20px; border-radius: 8px; z-index: 1000; color: white; width: 300px;">
+    <h3 style="text-align: center; margin-bottom: 15px;">Configurar Alarme</h3>
+    <div style="margin-bottom: 15px;">
+      <label for="alarmName">Nome do Alarme:</label>
+      <input type="text" id="alarmName" style="width: 100%; padding: 5px; margin-top: 5px;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="alarmTime">Hora do Alarme:</label>
+      <input type="time" id="alarmTime" style="width: 100%; padding: 5px; margin-top: 5px;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="alarmDays">Dias da Semana:</label>
+      <div id="alarmDays" style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px;">
+        <label><input type="checkbox" value="0"> Dom</label>
+        <label><input type="checkbox" value="1"> Seg</label>
+        <label><input type="checkbox" value="2"> Ter</label>
+        <label><input type="checkbox" value="3"> Qua</label>
+        <label><input type="checkbox" value="4"> Qui</label>
+        <label><input type="checkbox" value="5"> Sex</label>
+        <label><input type="checkbox" value="6"> Sáb</label>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <button id="saveAlarm"
+        style="padding: 8px 15px; background-color: green; color: white; border: none; border-radius: 4px;">Salvar</button>
+      <button id="cancelAlarm"
+        style="padding: 8px 15px; background-color: red; color: white; border: none; border-radius: 4px;">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Lista de Alarmes -->
+  <div id="alarmsList"
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #193082; padding: 20px; border-radius: 8px; z-index: 1000; color: white; width: 80%; max-width: 500px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="text-align: center; margin-bottom: 15px;">Meus Alarmes</h3>
+    <div id="alarmsContainer" style="margin-bottom: 15px;"></div>
+    <div style="display: flex; justify-content: space-between;">
+      <button id="addNewAlarm"
+        style="padding: 8px 15px; background-color: blue; color: white; border: none; border-radius: 4px;">Adicionar
+        Novo</button>
+      <button id="closeAlarmsList"
+        style="padding: 8px 15px; background-color: red; color: white; border: none; border-radius: 4px;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Botão de Alarmes -->
+  <button id="alarmButton">⏰</button>
 
   <div class="menu">
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="botoes" id="botoesContainer">
-      <button type="button" onclick="window.open('https://webconsulta.equatorialenergia.com.br/sistemas-varejo/', '_blank');">WEBCONSULTA/SISTEMAS</button>
+      <button type="button" onclick="toggleHistorico()" style="height: 100%;padding: 5px 5px;">Histórico de Atendimento</button>
+      <button type="button" onclick="toggleInformativo()"style="height: 100%;padding: 5px 5px;background-color: coral;">INFORMATIVOS</button>
+      <button type="button"
+        onclick="window.open('https://webconsulta.equatorialenergia.com.br/sistemas-varejo/', '_blank');">WEBCONSULTA/SISTEMAS</button>
       <button type="button" onclick="abrirPopupProtocolo()">Pesquisar Protocolo Site</button>
       <div style="display: flex;">
-        <button type="button" onclick="window.open('http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-MA</button>
-        <button type="button" onclick="window.open('http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-PA</button>
-        <button type="button" onclick="window.open('http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-PI</button>
-        <button type="button" onclick="window.open('http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-AL</button>
-        <button type="button" onclick="window.open('https://ap-crm-prd.equatorial.corp:44301/sap/bc/bsp/sap/crm_ui_start?sap-client=405&sap-language=PT', '_blank');">SAP-AP</button>
+        <button type="button"
+          onclick="window.open('http://unifica.equatorialenergia.com.br:9204/sap(bD1wdCZjPTQwMSZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-MA</button>
+        <button type="button"
+          onclick="window.open('http://unifica.equatorialenergia.com.br:9203/sap(bD1wdCZjPTQwMiZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-PA</button>
+        <button type="button"
+          onclick="window.open('http://epispdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwNCZkPW1pbg%3D%3D)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-PI</button>
+        <button type="button"
+          onclick="window.open('http://ealspdccrm02.equatorial.corp:8000/sap(bD1wdCZjPTQwMyZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm', '_blank');">SAP-AL</button>
+        <button type="button"
+          onclick="window.open('https://ap-crm-prd.equatorial.corp:44301/sap/bc/bsp/sap/crm_ui_start?sap-client=405&sap-language=PT', '_blank');">SAP-AP</button>
       </div>
       <div style="display: flex;">
-        <button type="button" onclick="window.open('http://10.7.1.20:8090/account/index.rails', '_blank');">ATC-MA</button>
-        <button type="button" onclick="window.open('http://10.130.1.7:8083/account/index.rails', '_blank');">ATC-PA</button>
-        <button type="button" onclick="window.open('http://10.6.10.170:8090/account/index.rails', '_blank');">ATC-PI</button>
-        <button type="button" onclick="window.open('file://10.181.75.23/ATC_Installer/DeskTopATC.application', '_blank');">ATC-AL</button>
-        <button type="button" onclick="window.open('http://10.98.20.77:8090/account/index.rails', '_blank');">ATC-AP</button>
-        <button type="button" onclick="window.open('http://10.63.79.108:8090/home/index.rails', '_blank');">ATC-RS</button>
+        <button type="button"
+          onclick="window.open('http://10.7.1.20:8090/account/index.rails', '_blank');">ATC-MA</button>
+        <button type="button"
+          onclick="window.open('http://10.130.1.7:8083/account/index.rails', '_blank');">ATC-PA</button>
+        <button type="button"
+          onclick="window.open('http://10.6.10.170:8090/account/index.rails', '_blank');">ATC-PI</button>
+        <button type="button"
+          onclick="window.open('file://10.181.75.23/ATC_Installer/DeskTopATC.application', '_blank');">ATC-AL</button>
+        <button type="button"
+          onclick="window.open('http://10.98.20.77:8090/account/index.rails', '_blank');">ATC-AP</button>
+        <button type="button"
+          onclick="window.open('http://10.63.79.108:8090/home/index.rails', '_blank');">ATC-RS</button>
       </div>
-      
+
       <div style="display: flex;">
-        <button type="button" onclick="window.open('http://somos-ma.equatorialenergia.com.br/somos/index.php ', '_blank');">SOMOS-MA</button>
-        <button type="button" onclick="window.open('https://somos-pa.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-PA</button>
-        <button type="button" onclick="window.open('https://somos-pi.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-PI</button>
-        <button type="button" onclick="window.open('https://somos-al.equatorialenergia.com.br/index.php', '_blank');">SOMOS-AL</button>
-        <button type="button" onclick="window.open('https://somos-ap.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-AP</button>
+        <button type="button"
+          onclick="window.open('http://somos-ma.equatorialenergia.com.br/somos/index.php ', '_blank');">SOMOS-MA</button>
+        <button type="button"
+          onclick="window.open('https://somos-pa.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-PA</button>
+        <button type="button"
+          onclick="window.open('https://somos-pi.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-PI</button>
+        <button type="button"
+          onclick="window.open('https://somos-al.equatorialenergia.com.br/index.php', '_blank');">SOMOS-AL</button>
+        <button type="button"
+          onclick="window.open('https://somos-ap.equatorialenergia.com.br/somos/index.php', '_blank');">SOMOS-AP</button>
       </div>
-      
+
       <div style="display: flex;">
-        <button type="button" onclick="window.open('https://backoffice-ma.equatorialenergia.com.br/', '_blank');">BKO-MA</button>
-        <button type="button" onclick="window.open('https://backoffice-pa.equatorialenergia.com.br/', '_blank');">BKO-PA</button>
-        <button type="button" onclick="window.open('https://backoffice-pi.equatorialenergia.com.br/', '_blank');">BKO-PI</button>
-        <button type="button" onclick="window.open('https://backoffice-al.equatorialenergia.com.br/', '_blank');">BKO-AL</button>
-        <button type="button" onclick="window.open('https://backoffice-ap.equatorialenergia.com.br/', '_blank');">BKO-AP</button>
+        <button type="button"
+          onclick="window.open('https://backoffice-ma.equatorialenergia.com.br/', '_blank');">BKO-MA</button>
+        <button type="button"
+          onclick="window.open('https://backoffice-pa.equatorialenergia.com.br/', '_blank');">BKO-PA</button>
+        <button type="button"
+          onclick="window.open('https://backoffice-pi.equatorialenergia.com.br/', '_blank');">BKO-PI</button>
+        <button type="button"
+          onclick="window.open('https://backoffice-al.equatorialenergia.com.br/', '_blank');">BKO-AL</button>
+        <button type="button"
+          onclick="window.open('https://backoffice-ap.equatorialenergia.com.br/', '_blank');">BKO-AP</button>
       </div>
-      <button type="button" onclick="window.open('https://sistemas-hm.equatorialenergia.com.br/telaagil', '_blank');">Tela Ágil</button>
-      <button type="button" onclick="window.open('https://forms.office.com/pages/responsepage.aspx?id=UUVNECctOUiHsoYmSlIQpd6wcSHWvtxEsxHhTg3zTMpUNFM5TlJNNk1FSFNEN1lXOUNUSDBGVTZMWS4u', '_blank');">SERVIÇO EMERGÊNCIAL - RISCO A VIDA (COI)</button>
+      <button type="button"
+        onclick="window.open('https://sistemas-hm.equatorialenergia.com.br/telaagil', '_blank');">Tela Ágil</button>
+      <button type="button"
+        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=UUVNECctOUiHsoYmSlIQpRtvS2oXzwlBiQGbf6zGA45UQzBVOTFSMEtHVFo4UzA5WUZaN1VPUUtOQS4u', '_blank');">SERVIÇO
+        EMERGÊNCIAL - RISCO A VIDA (COI)</button>
       <button type="button" onclick="abrirEquatorialSite()">SITE EQUATORIAL</button>
-      
-      <button type="button" onclick="window.open('https://login.sae1.pure.cloud/?rid=CgQ8vm4NoAevaSgBMUyupcv6NQEex2P8O-8ZTpsXRyc#/authenticate', '_blank');">Genesys</button>
+
+      <button type="button"
+        onclick="window.open('https://login.sae1.pure.cloud/?rid=CgQ8vm4NoAevaSgBMUyupcv6NQEex2P8O-8ZTpsXRyc#/authenticate', '_blank');">Genesys</button>
       <button type="button" onclick="window.open('https://abre.ai/ldW8', '_blank');">Meu Elogio</button>
       <button type="button" onclick="window.open('http://10.6.1.160/', '_blank');">Optimus</button>
-      <button type="button" onclick="window.open('http://treinamento.equatorialenergia.com.br/login/index.php', '_blank');">Portal Treinamento</button>
-      <button type="button" onclick="window.open('http://portaldocolaborador.equatorial.corp/home', '_blank');">Portal do Colaborador</button>
-      <button type="button" onclick="window.open('https://equatorialenergia.service-now.com/equatorial?sys_kb_id=8bdeb791fb9a5a900146f8d65eefdc13&id=kb_article_view&sysparm_rank=4&sysparm_tsqueryId=d76d3e5f8752d210920ecb340cbb35a5', '_blank');">Desbloqueio E Reset Senha</button>
+      <button type="button"
+        onclick="window.open('http://treinamento.equatorialenergia.com.br/login/index.php', '_blank');">Portal
+        Treinamento</button>
+      <button type="button" onclick="window.open('http://portaldocolaborador.equatorial.corp/home', '_blank');">Portal
+        do Colaborador</button>
+      <button type="button"
+        onclick="window.open('https://equatorialenergia.service-now.com/equatorial?sys_kb_id=8bdeb791fb9a5a900146f8d65eefdc13&id=kb_article_view&sysparm_rank=4&sysparm_tsqueryId=d76d3e5f8752d210920ecb340cbb35a5', '_blank');">Desbloqueio
+        E Reset Senha</button>
       <button type="button" onclick="window.open('https://bit.ly/seniorx-equatorial', '_blank');">Ponto</button>
-      <button type="button" onclick="window.open('https://sisfeedback.equatorialenergia.com.br/login', '_blank');">Sis Feedback</button>
-      <button type="button" onclick="window.open('https://equatorialenergia.learning.rocks/login', '_blank');">Univ. Saber</button>
-      <button type="button" onclick="window.open('http://10.6.1.18/reports/browse/EQTL%20Servi%C3%A7os/4.%20Contact%20Center%20-%20EQTL%20SERVI%C3%87OS/1.%20Coordena%C3%A7%C3%A3o%20Call%20Center/BSC', '_blank');">BSC</button>
-      <button type="button" onclick="window.open('https://equatorialenergia.edusense.app/#/', '_blank');">Aprender +</button>
-      <button type="button" style="background-color: #00a303;" onclick="window.open('https://forms.gle/usE47QgomH8En8mE7', '_blank');">FAÇA UMA SUSGESTÃO ou ELOGIO</button>
+      <button type="button" onclick="window.open('https://sisfeedback.equatorialenergia.com.br/login', '_blank');">Sis
+        Feedback</button>
+      <button type="button" onclick="window.open('https://equatorialenergia.learning.rocks/login', '_blank');">Univ.
+        Saber</button>
+      <button type="button"
+        onclick="window.open('http://10.6.1.18/reports/browse/EQTL%20Servi%C3%A7os/4.%20Contact%20Center%20-%20EQTL%20SERVI%C3%87OS/1.%20Coordena%C3%A7%C3%A3o%20Call%20Center/BSC', '_blank');">BSC</button>
+      <button type="button" onclick="window.open('https://equatorialenergia.edusense.app/#/', '_blank');">Aprender
+        +</button>
+      <button type="button" style="background-color: #00a303;"
+        onclick="window.open('https://forms.gle/usE47QgomH8En8mE7', '_blank');">FAÇA UMA SUSGESTÃO ou ELOGIO</button>
       <!-- Botão tipo chave para modo escuro -->
       <div class="toggle-switch">
         <label class="switch-label">
@@ -76,64 +167,114 @@
         <input type="checkbox" id="toggleWindowFeatures">
       </div>
     </div>
-    <button type="button" onclick="toggleHistorico()" style="height: 100%;padding: 5px 5px;">Histórico</button>
-    <button type="button" onclick="toggleInformativo()" style="height: 100%;padding: 5px 5px;background-color: coral;">INFORMATIVOS</button>
-    <div class="bttonbox" id="bttonSAP" style="width: fit-content;display: none;flex-direction: column;flex-wrap: wrap;height: 100%;">
-      
+    
+    
+    <div class="bttonbox" id="bttonSAP"
+      style="width: fit-content;display: none;flex-direction: column;flex-wrap: wrap;height: 100%;">
+
+    </div>
+    <div id="containeSeach">
+      <input type="text" id="query" placeholder="Digite sua pesquisa">
+      <button onclick="search()">Pesquisar</button>
     </div>
   </div>
   <textarea class="historicoquadro" style="display: none;" id="historico" rows="25" cols="50" readonly></textarea>
   <div class="informativoquadro" style="display: none;" id="informativo"></div>
-<div class="containerforms">
-  <form id="formulario" style="height: fit-content;">
-    
-    
-  
-    <label for="usuario">👤 SUA MATRICULA / SEU NOME:</label>
-<input type="text" id="usuario" name="ATENDENTE" placeholder="U5514XX / SEU-NOME" oninput="this.value = this.value.toUpperCase();" onclick="selecionarECopiar(this);" required>
-      
-    <label for="nome">📝 CLIENTE:</label>
-    <input type="text" id="nome" name="CLIENTE" placeholder="Nome do cliente..." oninput="this.value = this.value.toUpperCase();" onclick="selecionarECopiar(this);" required>
-    <div style="display: flex;align-items: center;width: 100%;height: fit-content;position: relative;">
-      <label for="telefone">📞 TELEFONE:</label>
-      <button type="button" style="background-color: darkorchid; padding-left: 5px;padding-right: 5px;" onclick="exibirPopupSelecaoEstado()">
-        <span id="estadoTelefone" >UF</span>
-      </button>
-      <label class="toggle-sap">
-        <span id="sapTexto">Auto</span>
-        <input type="checkbox" id="toggleSapAuto">
-        <span class="slider-sap"></span>
-      </label>
-      
-    </div>
-    <input type="tel" id="telefone" name="TELEFONE" placeholder="Digite para buscar..." pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '');" onclick="selecionarECopiar(this);" required>
+  <div class="containerforms">
+    <form id="formulario" style="height: fit-content;">
 
-    
-    <label for="cc">💳 CC/U.C/CPF:</label>
-    <input type="text" id="cc" name="C.C/U.C/CPF" placeholder="Conta Contrato/Cpf/UC" pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '');" onclick="selecionarECopiar(this);" required>
-    
-    <label for="descricao">▼✏️ DESCRIÇÃO ✏️▼</label>
-    <input type="text" id="pesquisaDescricao" placeholder="🔍Digite para buscar...">
-    <select id="descricao" name="DESCRIÇÃO" style="width: 100%;background: #160b7a;">
-      <option value="">Selecione uma opção</option>
-    </select><br>
-    <div class="bttonscopyclear" style="display: flex; width: 100%; justify-content: center;">
-      <button style="font-size: clamp(1rem, 2.5vw, 2rem);flex: 1;height: 50px;background-color: green;color: white;position: relative;/* margin: auto; *//* left: 5px; */" type="submit">Copiar</button>
-      <button style="font-size: clamp(1rem, 2.5vw, 2rem);flex: 1;height: 50px;background-color: brown;color: white;position: relative;/* margin: auto; *//* right: 5px; */" type="button" onclick="limparCampos()">Limpar</button>
-    </div>
-    
-  </form>
-  
-  <textarea class="quadro" id="dadosDeInfor" rows="25" cols="50" readonly oninput="verificarTexto()" style="display: none;"></textarea>
-</div>
-<div id="avisoSexta" style="display: none;">
-  <span>LEMBRE-SE: HOJÉ É DIA DE MANDAR O CLIENTE PARA A PESQUISA DE SASTIFAÇÃO!</span>
-</div>
-<img id="banner" style="display: none;">
-<footer class="copyright">
-  <p>&copy; 2024 Raylander Silva de Sousa. Todos os direitos reservados.</p>
-  <p>Telefone/Whatsapp► (86) 995204303 - Email► raylander56@hotmail.com</p>
-</footer>
+
+
+
+
+
+
+
+      <label for="usuario" style="margin: auto;width: 100%;margin: auto;text-align: center;">👤 SUA MATRICULA / SEU
+        NOME:</label>
+      <input type="text" id="usuario" name="ATENDENTE" placeholder="U5514XX / SEU-NOME"
+        style="width: 50%;right: 0;left: 0;position: relative;margin: auto;margin-bottom: 18px;text-align: center;"
+        oninput="this.value = this.value.toUpperCase();" required>
+      <div
+        style="border: 1px solid white;border-radius: 30px;padding: 5px;margin: -11px;border-bottom: 0;border-top: 0;margin-top: -16px;padding-top: 20px;">
+
+        <label for="nome">📝 CLIENTE:</label>
+        <div style="display: flex;width: 100%;flex-direction: row;align-items: baseline;">
+          <input type="text" id="nome" name="CLIENTE" placeholder="Nome do cliente..."
+            oninput="this.value = this.value.toUpperCase();" required>
+          <button type="button" style="height: 30px;background-color: green"
+            onclick="copiarTexto('#nome')">Copiar</button>
+          <button type="button" style="height: 30px;background-color: salmon"
+            onclick="colarTexto('#nome')">Colar</button>
+          <button type="button" style="height: 30px;background-color: brown" onclick="limparTexto('#nome')">❌</button>
+        </div>
+        <div style="display: flex;align-items: baseline;width: 100%;height: fit-content;position: relative;">
+          <label for="telefone">📞 TELEFONE:</label>
+          <button type="button" style="background-color: darkorchid; padding-left: 5px;padding-right: 5px;"
+            onclick="exibirPopupSelecaoEstado()">
+            <span id="estadoTelefone">UF</span>
+          </button>
+          <label class="toggle-sap">
+            <span id="sapTexto">Auto</span>
+            <input type="checkbox" id="toggleSapAuto">
+            <span class="slider-sap"></span>
+          </label>
+
+        </div>
+        <div style="display: flex;width: 100%;flex-direction: row;align-items: baseline;">
+          <input type="tel" id="telefone" name="TELEFONE" placeholder="Digite para buscar..." pattern="\d*"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          <button type="button" style="height: 30px;background-color: green"
+            onclick="copiarTexto('#telefone')">Copiar</button>
+          <button type="button" style="height: 30px;background-color: salmon"
+            onclick="colarTexto('#telefone')">Colar</button>
+          <button type="button" style="height: 30px;background-color: brown"
+            onclick="limparTexto('#telefone')">❌</button>
+        </div>
+
+        <label for="cc">💳 CC/U.C/CPF:</label>
+        <div style="display: flex;width: 100%;flex-direction: row;align-items: center;">
+          <input type="text" id="cc" name="C.C/U.C/CPF" placeholder="Conta Contrato/Cpf/UC" pattern="\d*"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          <button type="button" style="height: 30px;background-color: green"
+            onclick="copiarTexto('#cc')">Copiar</button>
+          <button type="button" style="height: 30px;background-color: salmon" onclick="colarTexto('#cc')">Colar</button>
+          <button type="button" style="height: 30px;background-color: brown" onclick="limparTexto('#cc')">❌</button>
+        </div>
+        <hr style="width: 100%;">
+
+        <label for="descricao"
+          style="left: 0;right: 0;margin: auto;position: relative;height: fit-content;width: fit-content;">▼✏️ DESCRIÇÃO
+          ✏️▼</label>
+        <input type="text" id="pesquisaDescricao" placeholder="🔍Digite para buscar..."
+          style="margin-bottom: -6px;border-bottom: 0;">
+        <select id="descricao" name="DESCRIÇÃO" style="width: 100%; background: #160b7a; border-top: 0;">
+          <option value="">Selecione uma opção</option>
+        </select>
+      </div>
+      <div class="bttonscopyclear" style="display: flex; width: 100%; justify-content: center;gap: 10px;">
+        <button
+          style="font-size: clamp(1rem, 2.5vw, 2rem);flex: 1;height: 50px;background-color: green;color: white;position: relative;/* margin: auto; *//* left: 5px; */"
+          type="submit">Copiar</button>
+        <button
+          style="font-size: clamp(1rem, 2.5vw, 2rem);flex: 1;height: 50px;background-color: brown;color: white;position: relative;/* margin: auto; *//* right: 5px; */"
+          type="button" onclick="limparCampos()">Limpar</button>
+      </div>
+
+    </form>
+
+    <textarea class="quadro" id="dadosDeInfor" rows="25" cols="50" readonly oninput="verificarTexto()"
+      style="display: none;"></textarea>
+  </div>
+  <div id="avisoSexta" style="display: none;">
+    <span>LEMBRE-SE: HOJÉ É DIA DE MANDAR O CLIENTE PARA A PESQUISA DE SATISFAÇÃO!</span>
+  </div>
+  <img id="banner" style="display: none;">
+  <footer class="copyright">
+    <p>&copy; 2024 Raylander Silva de Sousa. Todos os direitos reservados.</p>
+    <p>Telefone/Whatsapp► (86) 995204303 - Email► raylander56@hotmail.com</p>
+  </footer>
 
 </body>
+
 </html>
