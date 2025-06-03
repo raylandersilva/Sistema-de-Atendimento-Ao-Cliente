@@ -2,6 +2,11 @@
 
 O **Sistema de Integração de Atendimento** é uma solução desenvolvida para agilizar o atendimento ao cliente em uma empresa de energia elétrica. O sistema integra várias ferramentas e sistemas em uma única interface, permitindo que os atendentes acessem rapidamente as informações do cliente com base no DDD do estado, abram automaticamente o sistema correspondente e realizem ações emergenciais de forma eficiente.
 
+## 🆕 Novas Funcionalidades
+
+- **🔔 Sistema de Alarme**: Adicionado sistema de notificações sonoras para alertas importantes durante o atendimento.
+- **🔍 Busca Integrada**: Novo campo de pesquisa que realiza buscas diretamente no Bing para consultas rápidas durante o atendimento.
+
 ## 🚀 Funcionalidades Principais
 
 - **Integração de Sistemas**: Centraliza o acesso a vários sistemas da empresa em uma única tela.
